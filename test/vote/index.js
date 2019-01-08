@@ -49,13 +49,13 @@ describe("vote.js", function () {
     });
 
     it("should create vote from wif", function () {
-      var secretKey = qzeonjs.ECPair.fromWIF("SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK", NETWORKS.zeon);
+      var secretKey = qzeonjs.ECPair.fromWIF("8qC8u6Ct5qjmz2bF91CxFAHUPa6kmRxvTivNNamJr8VwN9SkLv9", NETWORKS.zeon);
       secretKey.publicKey = secretKey.getPublicKeyBuffer().toString("hex");
 
       var tx = createVote(secretKey, publicKeys);
       (tx).should.be.ok;
       (tx).should.be.type("object");
-      (tx).should.have.property("recipientId").and.be.type("string").and.be.equal("PCyCoyhJWPvTgebGDueTt8azenoT5LKdSd");
+      (tx).should.have.property("recipientId").and.be.type("string").and.be.equal("ZCf27jmRfhEquCLt6fcPmQPp2aTinXdRcQ");
     });
 
     it("should create transaction with fee override", function () {
