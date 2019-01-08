@@ -290,7 +290,7 @@ describe("crypto.js", function () {
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("XL2CkSEks76phsLQD2NtMkLRworLYkqxdR");
+      (address).should.be.equal("ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy");
     });
 
     it("should generate address by publicKey - second test - DevNET", function () {
@@ -300,7 +300,7 @@ describe("crypto.js", function () {
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("XL2CkSEks76phsLQD2NtMkLRworLYkqxdR");
+      (address).should.be.equal("tewAwC32VffG3qizWG2n4Pm8JYWL9ixUwK");
       crypto.setNetworkVersion(0x50);
     });
 
