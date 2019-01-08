@@ -274,7 +274,7 @@ describe("crypto.js", function () {
     });
 
     it("should generate address by publicKey - DevNET -", function () {
-      crypto.setNetworkVersion(0x4B);
+      crypto.setNetworkVersion(0x80);
       var keys = crypto.getKeys("secret");
       var address = getAddress(keys.publicKey);
 
