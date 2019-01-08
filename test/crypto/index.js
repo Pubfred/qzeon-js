@@ -38,7 +38,7 @@ describe("crypto.js", function () {
       (getBytes).should.be.type("function");
     });
 
-    it("should return Buffer of simply transaction and buffer must be 202 length", function () {
+    it("should return Buffer of simply transaction and buffer must be 203 length", function () {
       var transaction = {
         type: 0,
         amount: 1000,
@@ -54,10 +54,10 @@ describe("crypto.js", function () {
       bytes = getBytes(transaction);
       (bytes).should.be.ok;
       (bytes).should.be.type("object");
-      (bytes.length).should.be.equal(202);
+      (bytes.length).should.be.equal(203);
     });
 
-    it("should return Buffer of transaction with second signature and buffer must be 266 length", function () {
+    it("should return Buffer of transaction with second signature and buffer must be 267 length", function () {
       var transaction = {
         type: 0,
         amount: 1000,
@@ -74,7 +74,7 @@ describe("crypto.js", function () {
       bytes = getBytes(transaction);
       (bytes).should.be.ok;
       (bytes).should.be.type("object");
-      (bytes.length).should.be.equal(266);
+      (bytes.length).should.be.equal(267);
     });
   });
 
@@ -300,7 +300,7 @@ describe("crypto.js", function () {
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("tewAwC32VffG3qizWG2n4Pm8JYWL9ixUwK");
+      (address).should.be.equal("ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy");
       crypto.setNetworkVersion(0x50);
     });
 
