@@ -270,7 +270,7 @@ describe("crypto.js", function () {
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2");
+      (address).should.be.equal("ZEmokD2hqX7KxTFxNgLxavj2PnFsubBAFX");
     });
 
     it("should generate address by publicKey - DevNET -", function () {
