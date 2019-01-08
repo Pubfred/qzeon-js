@@ -279,7 +279,4 @@ var transaction = qzeonjs.vote.createVote("secret", ["+5819957819195001929918192
 ## License
 
 ZEONJS is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-# zeon-js
-# zeon-js
-# zeon-js
-# zeon-js
+
