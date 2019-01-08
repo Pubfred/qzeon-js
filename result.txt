@@ -1,0 +1,2582 @@
+
+> qzeonjs@0.2.1 test /root/qzeon-js
+> mocha test/zeon.js test/*/*
+
+
+
+  ZEON JS
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have properties
+
+  crypto.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should has properties
+    #getBytes
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return Buffer of simply transaction and buffer must be 202 length
+      ✓ should return Buffer of transaction with second signature and buffer must be 266 length
+    #getHash
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return Buffer and Buffer most be 32 bytes length
+    #getId
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return string id and be equal to fadfd463561ffd13637fcc689e2285b9b2379de7c2d865bbeb6aa9945fbb219e
+    #getFee
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return number
+      ✓ should return 10000000
+      ✓ should return 10000000000
+      ✓ should be equal 1000000000000
+      ✓ should be equal 100000000
+    fixedPoint
+      ✓ should be ok
+      ✓ should be number
+      ✓ should be equal 100000000
+    #sign
+      ✓ should be ok
+      ✓ should be a function
+    #secondSign
+      ✓ should be ok
+      ✓ should be a function
+    #getKeys
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return two keys in hex
+    #getAddress
+      ✓ should be ok
+      ✓ should be a function
+      1) should generate address by publicKey
+      ✓ should generate address by publicKey - DevNET -
+      2) should generate address by publicKey - second test
+      3) should generate address by publicKey - second test - DevNET
+      4) should generate the same address as ECPair.getAddress()
+      5) should generate the same address as ECPair.getAddress() - DevNET
+    #verify
+      ✓ should be ok
+      ✓ should be function
+    #verifySecondSignature
+      ✓ should be ok
+      ✓ should be function
+
+  different networks
+    ✓ validate address on devnet should be ok
+
+  delegate.js
+    ✓ should be ok
+    ✓ should be function
+    ✓ should have property createDelegate
+    #createDelegate
+      ✓ should be ok
+      ✓ should be function
+      ✓ should create delegate (51ms)
+      ✓ should create transaction with fee override (45ms)
+      ✓ should fail to create transaction with invalid fee override
+{ type: 2,
+  timestamp: 56858507,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 0,
+  fee: 1000000,
+  vendorFieldHex: '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  signSignature: '304402201026135923cc92de2fbdd8be12f9be982d5e5e2d93dcd622b1c6cab39c0f3d510220590035f884fc78bb57f21cb8cd4027153effbe106fb58a7398d992103ef95c0e',
+  signature: '304402201d9b889ade97e4593bc9299d45fdd426358e9772e1206a43f1af5034b8094ebc0220191a20f48a0bfc9d3e5d1895d166e6a9834bd71d722db249e46efacaeada4317',
+  asset: { delegate: { username: 'delegate' } } }
+      ✓ should be deserialised correctly
+      returned delegate
+        ✓ should be ok
+        ✓ should be object
+        ✓ should have recipientId equal null
+        ✓ shoud have amount equal 0
+        ✓ should have type equal 2
+        ✓ should have timestamp number
+        ✓ should have senderPublicKey in hex
+        ✓ should have signature in hex
+        ✓ should have second signature in hex
+        ✓ should have delegate asset
+        ✓ should be signed correctly
+        ✓ should be second signed correctly
+        ✓ should not be signed correctly now
+        ✓ should not be second signed correctly now
+        delegate asset
+          ✓ should be ok
+          ✓ should be object
+          ✓ should be have property username
+
+  ecdsa
+    deterministicGenerateK
+      ✓ for "Everything should be made as simple as possible, but not simpler."
+      ✓ for "Equations are more important to me, because politics is for the present, but an equation is something for eternity."
+      ✓ for "Not only is the Universe stranger than we think, it is stranger than we can think."
+      ✓ for "How wonderful that we have met with a paradox. Now we have some hope of making progress."
+      ✓ for "Computer science is no more about computers than astronomy is about telescopes."
+      ✓ for "...if you aren't, at any given time, scandalized by code you wrote five or even three years ago, you're not learning anywhere near enough"
+      ✓ for "The question of whether computers can think is like the question of whether submarines can swim."
+      ✓ loops until an appropriate k value is found
+      ✓ loops until a suitable signature is found
+      ✓ produces the expected k values for test data if k wasn't suitable
+      ✓ produces the expected k values for Everything should be made as simple as possible, but not simpler. if k wasn't suitable
+      ✓ produces the expected k values for Satoshi Nakamoto if k wasn't suitable
+      ✓ produces the expected k values for Diffie Hellman if k wasn't suitable
+      ✓ produces the expected k values for Japan if k wasn't suitable
+      ✓ produces the expected k values for Bitcoin if k wasn't suitable
+      ✓ produces the expected k values for i2FLPP8WEus5WPjpoHwheXOMSobUJVaZM1JPMQZq if k wasn't suitable
+      ✓ produces the expected k values for lEE55EJNP7aLrMtjkeJKKux4Yg0E8E1SAJnWTCEh if k wasn't suitable
+      ✓ produces the expected k values for 2SaVPvhxkAPrayIVKcsoQO5DKA8Uv5X/esZFlf+y if k wasn't suitable
+      ✓ produces the expected k values for 00A0OwO2THi7j5Z/jp0FmN6nn7N/DQd6eBnCS+/b if k wasn't suitable
+    sign
+      ✓ produces a deterministic signature for "Everything should be made as simple as possible, but not simpler." (45ms)
+      ✓ produces a deterministic signature for "Equations are more important to me, because politics is for the present, but an equation is something for eternity."
+      ✓ produces a deterministic signature for "Not only is the Universe stranger than we think, it is stranger than we can think."
+      ✓ produces a deterministic signature for "How wonderful that we have met with a paradox. Now we have some hope of making progress."
+      ✓ produces a deterministic signature for "Computer science is no more about computers than astronomy is about telescopes."
+      ✓ produces a deterministic signature for "...if you aren't, at any given time, scandalized by code you wrote five or even three years ago, you're not learning anywhere near enough"
+      ✓ produces a deterministic signature for "The question of whether computers can think is like the question of whether submarines can swim."
+      ✓ should sign with low S value
+    verify
+      ✓ verifies a valid signature for "Everything should be made as simple as possible, but not simpler." (43ms)
+      ✓ verifies a valid signature for "Equations are more important to me, because politics is for the present, but an equation is something for eternity." (57ms)
+      ✓ verifies a valid signature for "Not only is the Universe stranger than we think, it is stranger than we can think."
+      ✓ verifies a valid signature for "How wonderful that we have met with a paradox. Now we have some hope of making progress."
+      ✓ verifies a valid signature for "Computer science is no more about computers than astronomy is about telescopes." (42ms)
+      ✓ verifies a valid signature for "...if you aren't, at any given time, scandalized by code you wrote five or even three years ago, you're not learning anywhere near enough" (42ms)
+      ✓ verifies a valid signature for "The question of whether computers can think is like the question of whether submarines can swim."
+      ✓ fails to verify with The wrong signature
+      ✓ fails to verify with Invalid r value (< 0)
+      ✓ fails to verify with Invalid r value (== 0)
+      ✓ fails to verify with Invalid r value (>= n)
+      ✓ fails to verify with Invalid s value (< 0)
+      ✓ fails to verify with Invalid s value (== 0)
+      ✓ fails to verify with Invalid s value (>= n)
+      ✓ fails to verify with Invalid r, s values (r = s = -n)
+
+  ECPair
+    constructor
+      ✓ defaults to compressed
+      ✓ supports the uncompressed option
+      6) supports the network option
+      ✓ calculates the public point for bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN
+      ✓ calculates the public point for 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41
+      ✓ calculates the public point for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      ✓ calculates the public point for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      ✓ calculates the public point for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      ✓ calculates the public point for S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz
+      ✓ calculates the public point for 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG
+      ✓ calculates the public point for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      ✓ calculates the public point for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      ✓ calculates the public point for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      ✓ calculates the public point for UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY
+      ✓ calculates the public point for 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC
+      ✓ calculates the public point for SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9
+      ✓ throws Private key must be greater than 0
+      ✓ throws Private key must be greater than 0
+      ✓ throws Private key must be less than the curve order
+      ✓ throws Private key must be less than the curve order
+      ✓ throws Expected property "compressed" of type \?Boolean, got Number 2
+      ✓ throws Unexpected publicKey parameter
+      ✓ throws Expected property "network.messagePrefix" of type Buffer|String, got undefined
+    getPublicKeyBuffer
+      ✓ wraps Q.getEncoded
+    fromWIF
+      7) imports bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN (zeon)
+      8) imports 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41 (zeon)
+      9) imports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK (zeon)
+      10) imports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd (zeon)
+      11) imports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2 (zeon)
+      12) imports S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz (zeon)
+      13) imports 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG (zeon)
+      14) imports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK (zeon)
+      15) imports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd (zeon)
+      16) imports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2 (zeon)
+      17) imports UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY (devnet)
+      18) imports 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC (devnet)
+      19) imports SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9 (zeon)
+      ✓ throws on 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC
+      ✓ throws on brQnSed3Fia1w9VcbbS6ZGDgJ6ENkgwuQY2LS7pEC5bKHD1fMF
+      ✓ throws on KwDiBf89QgGbjEhKnhXJuH7LrciVrZi3qYjgd9M7rFU73sfZr2ym
+      ✓ throws on 3tq8Vmhh9SN5XhjTGSWgx8iKk59XbKG6UH4oqpejRuJhfYD
+      ✓ throws on 38uMpGARR2BJy5p4dNFKYg9UsWNoBtkpbdrXDjmfvz8krCtw3T1W92ZDSR
+    toWIF
+      20) exports bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN
+      21) exports 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41
+      22) exports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      23) exports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      24) exports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      25) exports S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz
+      26) exports 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG
+      27) exports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      28) exports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      29) exports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      30) exports UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY
+      31) exports 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC
+      32) exports SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9
+    makeRandom
+      33) allows a custom RNG to be used
+      ✓ retains the same defaults as ECPair constructor
+      34) supports the options parameter
+      ✓ loops until d is within interval [1, n - 1] : 1
+      ✓ loops until d is within interval [1, n - 1] : n - 1
+      uses randombytes RNG
+        35) generates a ECPair
+    getAddress
+      36) returns ZRhKihctrKhUz1XEgaLD1yYcKzs3NKYfVA for bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN
+      37) returns ZSHaBvrnYsoFB2MLFVw4JvvtumJg9X6LAn for 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41
+      38) returns PCyCoyhJWPvTgebGDueTt8azenoT5LKdSd for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      39) returns PALki8D2ekYsEKtwaNS5WS5cfYmaLKt5Ht for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      40) returns PVpcLkN2EjL3QLaMmo1XD4ZAKk5C1HEaCR for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      41) returns PVB1zsuWTTWEBGSSGsaQ8eDjTVy475WJq8 for S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz
+      42) returns PQHC9V4aZeYks7JEY3y9WCs1BaJYZt5aEB for 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG
+      43) returns PCyCoyhJWPvTgebGDueTt8azenoT5LKdSd for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      44) returns PALki8D2ekYsEKtwaNS5WS5cfYmaLKt5Ht for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      45) returns PVpcLkN2EjL3QLaMmo1XD4ZAKk5C1HEaCR for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      46) returns XD6pQJAnrMpPazgg4m6TCwXMFdvSV1Mtu6 for UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY
+      47) returns XYag2vKnSLbZm1N6GBftuZztuqE4KGY8r9 for 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC
+      48) returns PXXrFBDUCv6zDAEoYqqEhaJVh6ttAD4JyT for SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9
+    getNetwork
+      49) returns zeon for bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN
+      50) returns zeon for 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41
+      51) returns zeon for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      52) returns zeon for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      53) returns zeon for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      54) returns zeon for S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz
+      55) returns zeon for 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG
+      56) returns zeon for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK
+      57) returns zeon for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd
+      58) returns zeon for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2
+      59) returns devnet for UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY
+      60) returns devnet for 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC
+      61) returns zeon for SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9
+    ecdsa wrappers
+      signing
+        ✓ throws if no private key is found
+
+  ECSignature
+    toCompact
+      ✓ exports 1f33a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c96f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa54342262 correctly
+      ✓ exports 1b54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5 correctly
+      ✓ exports 1fff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd06fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b283 correctly
+      ✓ exports 1cc0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d375afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d3 correctly
+      ✓ exports 1f7186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d0de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df6 correctly
+      ✓ exports 1cfbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda4870e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd37 correctly
+      ✓ exports 20cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf906ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef correctly
+    parseCompact
+      ✓ imports 1f33a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c96f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa54342262 correctly
+      ✓ imports 1b54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5 correctly
+      ✓ imports 1fff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd06fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b283 correctly
+      ✓ imports 1cc0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d375afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d3 correctly
+      ✓ imports 1f7186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d0de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df6 correctly
+      ✓ imports 1cfbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda4870e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd37 correctly
+      ✓ imports 20cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf906ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef correctly
+      ✓ throws on 23987ceade6a304fc5823ab38f99fc3c5f772a2d3e89ea05931e2726105fc53b9e601fc3231f35962c714fcbce5c95b427496edc7ae8b3d12e93791d7629795b62
+      ✓ throws on 1c987ceade6a304fc5823ab38f99fc3c5f772a2d3e89ea05931e2726105fc53b9e601fc3231f35962c714fcbce5c95b427496edc7ae8b3d12e93791d7629795b62000000
+      ✓ throws on 1c987ceade6a304fc5823ab38f99fc3c5f772a2d3e89ea05931e2726105fc53b9e601fc3231f35962c714fcbce5c95b427496edc7ae8b3d12e9379
+    toDER
+      ✓ exports 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa54342262 correctly
+      ✓ exports 3044022054c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed022007082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5 correctly
+      ✓ exports 3045022100ff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd002206fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b283 correctly
+      ✓ exports 3045022100c0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d3022075afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d3 correctly
+      ✓ exports 304402207186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d02200de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df6 correctly
+      ✓ exports 3045022100fbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda48702200e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd37 correctly
+      ✓ exports 3045022100cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf9022006ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef correctly
+    fromDER
+      ✓ imports 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa54342262 correctly
+      ✓ imports 3044022054c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed022007082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5 correctly
+      ✓ imports 3045022100ff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd002206fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b283 correctly
+      ✓ imports 3045022100c0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d3022075afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d3 correctly
+      ✓ imports 304402207186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d02200de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df6 correctly
+      ✓ imports 3045022100fbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda48702200e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd37 correctly
+      ✓ imports 3045022100cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf9022006ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef correctly
+      ✓ throws "DER sequence length is too short" for ffffffffffffff
+      ✓ throws "DER sequence length is too long" for ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      ✓ throws "Expected DER sequence" for 00ffff0400ffffff020400ffffff
+      ✓ throws "DER sequence length is invalid" for 30ff020400ffffff020400ffffff
+      ✓ throws "DER sequence length is invalid" for 300c030400ffffff030400ffffff0000
+      ✓ throws "Expected DER integer" for 300cff0400ffffff020400ffffff
+      ✓ throws "Expected DER integer \(2\)" for 300c020200ffffff020400ffffff
+      ✓ throws "R length is zero" for 30080200020400ffffff
+      ✓ throws "S length is zero" for 3008020400ffffff0200
+      ✓ throws "R length is too long" for 300c02dd00ffffff020400ffffff
+      ✓ throws "S length is invalid" for 300c020400ffffff02dd00ffffff
+      ✓ throws "R value is negative" for 300c020480000000020400ffffff
+      ✓ throws "S value is negative" for 300c020400ffffff020480000000
+      ✓ throws "R value excessively padded" for 300c02040000ffff020400ffffff
+      ✓ throws "S value excessively padded" for 300c020400ffffff02040000ffff
+    toScriptSignature
+      ✓ exports 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa5434226201 correctly
+      ✓ exports 3044022054c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed022007082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a502 correctly
+      ✓ exports 3045022100ff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd002206fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b28303 correctly
+      ✓ exports 3045022100c0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d3022075afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d381 correctly
+      ✓ exports 304402207186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d02200de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df682 correctly
+      ✓ exports 3045022100fbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda48702200e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd3783 correctly
+      ✓ exports 3045022100cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf9022006ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef81 correctly
+      ✓ throws Invalid hashType 7
+      ✓ throws Invalid hashType 140
+    parseScriptSignature
+      ✓ imports 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa5434226201 correctly
+      ✓ imports 3044022054c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed022007082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a502 correctly
+      ✓ imports 3045022100ff466a9f1b7b273e2f4c3ffe032eb2e814121ed18ef84665d0f515360dab3dd002206fc95f5132e5ecfdc8e5e6e616cc77151455d46ed48f5589b7db7771a332b28303 correctly
+      ✓ imports 3045022100c0dafec8251f1d5010289d210232220b03202cba34ec11fec58b3e93a85b91d3022075afdc06b7d6322a590955bf264e7aaa155847f614d80078a90292fe205064d381 correctly
+      ✓ imports 304402207186363571d65e084e7f02b0b77c3ec44fb1b257dee26274c38c928986fea45d02200de0b38e06807e46bda1f1e293f4f6323e854c86d58abdd00c46c16441085df682 correctly
+      ✓ imports 3045022100fbfe5076a15860ba8ed00e75e9bd22e05d230f02a936b653eb55b61c99dda48702200e68880ebb0050fe4312b1b1eb0899e1b82da89baa5b895f612619edf34cbd3783 correctly
+      ✓ imports 3045022100cde1302d83f8dd835d89aef803c74a119f561fbaef3eb9129e45f30de86abbf9022006ce643f5049ee1f27890467b77a6a8e11ec4661cc38cd8badf90115fbd03cef81 correctly
+      ✓ throws on 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa5434226207
+      ✓ throws on 3044022033a69cd2065432a30f3d1ce4eb0d59b8ab58c74f27c41a7fdb5696ad4e6108c902206f807982866f785d3f6418d24163ddae117b7db4d5fdf0071de069fa543422628c
+
+  HDNode
+    Constructor
+      ✓ stores the keyPair/chainCode directly
+      ✓ has a default depth/index of 0
+      ✓ throws on uncompressed keyPair
+      ✓ throws when an invalid length chain code is given
+    fromSeed*
+      62) calculates privKey and chainCode for 3442193e
+      63) calculates privKey and chainCode for bd16bee5
+      64) calculates privKey and chainCode for 1a87677b
+      ✓ calculates privKey and chainCode for 3442193e
+      ✓ throws if IL is not within interval [1, n - 1] | IL === 0
+      ✓ throws if IL is not within interval [1, n - 1] | IL === n
+      ✓ throws on low entropy seed
+      ✓ throws on too high entropy seed
+    ECPair wrappers
+      getAddress
+        ✓ wraps keyPair.getAddress
+      getNetwork
+        ✓ wraps keyPair.getNetwork
+      getPublicKeyBuffer
+        ✓ wraps keyPair.getPublicKeyBuffer
+      sign
+        ✓ wraps keyPair.sign
+      verify
+        ✓ wraps keyPair.verify
+    fromBase58 / toBase58
+65166718
+version65166718
+      65) exports ppub3VMFY2ZqdyFmTWzjmDaYdTRpTWyxooG557FsKezbQB7LR6S9a1P9R2maPNUYSzWU3gGT1d9M4MJ9oywMu5tuiBzYjQLUnvhjeHzr7fp2crQ (public) correctly
+65166718
+version65166718
+      66) exports ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp (public) correctly
+65166718
+version65166718
+      67) exports ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR (public) correctly
+65166718
+version65166718
+      68) exports ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze (public) correctly
+65166718
+version65166718
+      69) exports ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm (public) correctly
+65166718
+version65166718
+      70) exports ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC (public) correctly
+65166718
+version65166718
+      71) exports ppub3VMFY2ZqdyFmT8W4sNeq5f9ahi8PVRWtkh3bcbjRNZECi5TLkAA5qvwAjUZXAEsRxEWEvHoWTRoQXmfb2Gp4r6zVbLXwdRCPxffxPXQ3xuq (public) correctly
+65166718
+version65166718
+      72) exports ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr (public) correctly
+65166718
+version65166718
+      73) exports ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc (public) correctly
+65166718
+version65166718
+      74) exports ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs (public) correctly
+65166718
+version65166718
+      75) exports ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9 (public) correctly
+65166718
+version65166718
+      76) exports ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW (public) correctly
+65166718
+version65166718
+      77) exports ppub3VMFY2ZqdyFmU74LfU167KTxsRiZEoeEdhbqNZcc45k5ov1SD95DLUJx1evC6i8dhwhe8gg183Ropo1RF5pX6up81BjUewYLqpDSexyN7RZ (public) correctly
+65166718
+version65166718
+      78) exports ppub3fx5MRjvTmLES3yDXLduF78LiiUE55BriYPFKi2Ct9VwxxKgkn2zLtFDqKRatQYG6ML8ncGjKjnswKua8jGoY298fLfmcwEBwdmsnxGWF2P (public) correctly
+76067358
+version76067358
+      ✓ exports xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8 (public) correctly
+76067358
+version76067358
+      ✓ exports xpub68Gmy5EdvgibQVfPdqkBBCHxA5htiqg55crXYuXoQRKfDBFA1WEjWgP6LHhwBZeNK1VTsfTFUHCdrfp1bgwQ9xv5ski8PX9rL2dZXvgGDnw (public) correctly
+65165636
+version65165636
+      79) exports pprv7GMu8X2wobhUF2vGfC3YGKV5uV9UQLYDhtLGXGayqqaMYJ712U4tsET6Y6qEw76Q89NWWg8CR3wr1TkDbr4G69zTwhcFdQC8tBQ75N8EkH9 (private) correctly
+65165636
+version65165636
+      80) exports pprv7JdK8ELQtrpTPe3yrwvB9MbCEJhpnR2EPVmAVMy6p2mduaQBShbyzNoWKNBaLpUMqCGCsyT4oQnijDmwFSLStE4z1aHPsMu2bC2xWSGHtwh (private) correctly
+65165636
+version65165636
+      81) exports pprv7LoSL1tJHZhXE66RbCp3k6UrHggvnSkXKpS15djukfZr97uKAW2HwwhjjRNdwkFQHH1tgo3Vt7k8sAJANn8RfPZRXMF7w7ftFzML3Q6DpR5 (private) correctly
+65165636
+version65165636
+      82) exports pprv7PQiNYi9zSYw6FtWqoDR76WzWqZT3zLWfMfgKy34vXwHYy6RyFrirPFfHTbFuyktnk3HHFzRJXa36N2uxo3cnV15sxog63upsG6Yg3RfQkn (private) correctly
+65165636
+version65165636
+      83) exports pprv7Re7Cyq7AvDvAjNEY4RVzbgJberBgaei6qYyavZYEyVtv4io32Z63xiaxmziNeAKrYAyuBDzDM2CZYwNADaxysb8HCtme8jY2EZiBYnGEVz (private) correctly
+65165636
+version65165636
+      84) exports pprv7TMsgfSMJ3c7h59gebzEJJgJPtRVW5Tju5wXqCwgT3tPdC8BZSokK4sebdmvHZHQTwaEgYCw4PZKZiwjhHbh6qEfchezm3VFJa84vagQoBC (private) correctly
+65165636
+version65165636
+      85) exports pprv7GMu8X2wobhUEeRbmM7piXCr9gHu5xo3PU7zpDKopDhDqH8CCcqqJ8cgtAcJ7ceVNC7wFxaeh9z36zUKeGSxhXKEQ7gVmk6sTS2LSDkDKLB (private) correctly
+65165636
+version65165636
+      86) exports pprv7KdeQEiuHcXYkv1tu8VhnKcNWe39nwHKwdsMz2MFtdZBXFaAmtBuSyBwTft6kgVKmrMm9xzP8KQATW79CYx1dkUdQJ6ZAEGcaqvtocmmy6A (private) correctly
+65165636
+version65165636
+      87) exports pprv7LnheqkRfWhevnE5KaVMFfHvuPG4LRT22nwtuRG2YNKZyYodPmcDf2yY52N5UwDog5gevzC2BKuGtjquvvZ9D3vBq2KtvjzsNdGRZw7pHVS (private) correctly
+65165636
+version65165636
+      88) exports pprv7Pbg4rjMq9zr2PuDPEdvDcEAEv8ZScNHMESkkUvMrFg1eNfnhH8vYwMuupZhWeRVz33MgHGQasaVDSd4yp5XDXjUxnrhmqyFrRhA3fqFLdN (private) correctly
+65165636
+version65165636
+      89) exports pprv7QmhypfiSYxZKM8p7iTTb7vM9ebvVaznNwAeHCcmh1wG6izinx4w5Tj1YXJ694onXcL3z73PyFA52ZiSVkz1uNQenjQ1v3ztC1hg7MkAXR4 (private) correctly
+65165636
+version65165636
+      90) exports pprv7S8jwFtDxjGo4cKhqnb9ZsJKYi92juus36nXgyyGKonrAvLHxazhG2g1cvy6J5trZvBnGrgDRLzm57bxE5MExM9NbauWyU8btP3EC2SDdXn (private) correctly
+65165636
+version65165636
+      91) exports pprv7GMu8X2wobhUFcysZSU5kBXEKPt4qLvPGUgEaBCzVkD6w7gHfbkxnfzUANj8bGarM1JjYgsbYusD2kGJys5yHdQiVQ1WcgTTbTbYX9j8gbE (private) correctly
+65165636
+version65165636
+      92) exports pprv7SxiwvD2dPmwDZtkRK6tsyBcAgdjfcU1MKTeXKcbKoxy69zYDEijo5vjz4z19v4ocJKsFaaT8bkfjmGKMaRXFb2WSmjVSNQbpXnToWJJWQ1 (private) correctly
+76066276
+version76066276
+      ✓ exports xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi (private) correctly
+76066276
+version76066276
+      ✓ exports xprv9uHRZZhk6KAJC1avXpDAp4MDc3sQKNxDiPvvkX8Br5ngLNv1TxvUxt4cV1rGL5hj6KCesnDYUhd7oWgT11eZG7XnxHrnYeSvkzY7d2bhkJ7 (private) correctly
+      ✓ throws on xprvQQQQQQQQQQQQQQQQCviVfJSKyQ1mDYahRjijr5idH2WwLsEd4Hsb2Tyh8RfQMuPh7f7RtyzTtdrbdqqsunu5Mm3wDvUAKRHSC34sJ7in334
+      ✓ throws on HAsbc6CgKmTYEQg2CTz7m5STEPAB
+76066276
+      ✓ throws on xprv9tnJFvAXAXPfPnMTKfwpwnkty7MzJwELVgp4NTBquaKXy4RndyfJJCJJf7zNaVpBpzrwVRutZNLRCVLEcZHcvuCNG3zGbGBcZn57FbNnmSP
+76066276
+      ✓ throws on xprv9s21ZrQH143K3yLysFvsu3n1dMwhNusmNHr7xArzAeCc7MQYqDBBStmqnZq6WLi668siBBNs3SjiyaexduHu9sXT9ixTsqptL67ADqcaBdm
+76066276
+      ✓ throws on xprv9s21ZrQYdgnodnKW4Drm1Qg7poU6Gf2WUDsjPxvYiK7iLBMrsjbnF1wsZZQgmXNeMSG3s7jmHk1b3JrzhG5w8mwXGxqFxfrweico7k8DtxR
+0
+version0
+      ✓ throws on 1111111111111adADjFaSNPxwXqLjHLj4mBfYxuewDPbw9hEj1uaXCzMxRPXDFF3cUoezTFYom4sEmEVSQmENPPR315cFk9YUFVek73wE9
+27106558
+      ✓ throws on Ltpv73XYpw28ZyVe2zEVyiFnxUZxoKLGQNdZ8NxUi1WcqjNmMBgtLbh3KimGSnPHCoLv1RmvxHs4dnKmo1oXQ8dXuDu8uroxrbVxZPA1gXboYvx
+      ✓ throws on 9XpNiB4DberdMn4jZiMhNGtuZUd7xUrCEGw4MG967zsVNvUKBEC9XLrmVmFasanWGp15zXfTNw4vW4KdvUAynEwyKjdho9QdLMPA2H5uyt
+      ✓ throws on 7JJikZQ2NUXjSAnAF2SjFYE3KXbnnVxzRBNddFE1DjbDEHVGEJzYC7zqSgPoauBJS3cWmZwsER94oYSFrW9vZ4Ch5FtGeifdzmtS3FGYDB1vxFZsYKgMc
+76067358
+version76067358
+      ✓ throws on xpub67tVq9SuNQCfm2PXBqjGRAtNZ935kx2uHJaURePth4JBpMfEy6jum7Euj7FTpbs7fnjhfZcNEktCucWHcJf74dbKLKNSTZCQozdDVwvkJhs
+76067358
+version76067358
+      ✓ throws on xpub661MyMwTWkfYZq6BEh3ywGVXFvNj5hhzmWMhFBHSqmub31B1LZ9wbJ3DEYXZ8bHXGqnHKfepTud5a2XxGdnnePzZa2m2DyzTnFGBUXtaf9M
+572662306
+version572662306
+      ✓ throws on 8FH81Rao5EgGmdScoN66TJAHsQP7phEMeyMTku9NBJd7hXgaj3HTvSNjqJjoqBpxdbuushwPEM5otvxXt2p9dcw33AqNKzZEPMqGHmz7Dpayi6Vb
+76067358
+version76067358
+      ✓ throws on xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gYymDsxxRe3WWeZQ7TadaLSdKUffezzczTCpB8j3JP96UwE2n6w1
+    getIdentifier
+65166718
+version65166718
+      93) returns the identifier for 3442193e
+65166718
+version65166718
+      94) returns the identifier for 5c1bd648
+65166718
+version65166718
+      95) returns the identifier for bef5a2f9
+65166718
+version65166718
+      96) returns the identifier for ee7ab90c
+65166718
+version65166718
+      97) returns the identifier for d880d7d8
+65166718
+version65166718
+      98) returns the identifier for d69aa102
+65166718
+version65166718
+      99) returns the identifier for bd16bee5
+65166718
+version65166718
+      100) returns the identifier for 5a61ff8e
+65166718
+version65166718
+      101) returns the identifier for d8ab4937
+65166718
+version65166718
+      102) returns the identifier for 78412e3a
+65166718
+version65166718
+      103) returns the identifier for 31a507b8
+65166718
+version65166718
+      104) returns the identifier for 26132fdb
+65166718
+version65166718
+      105) returns the identifier for 1a87677b
+65166718
+version65166718
+      106) returns the identifier for e371d69b
+76067358
+version76067358
+      ✓ returns the identifier for 3442193e
+76067358
+version76067358
+      ✓ returns the identifier for 5c1bd648 (41ms)
+    getFingerprint
+65166718
+version65166718
+      107) returns the fingerprint for 3442193e
+65166718
+version65166718
+      108) returns the fingerprint for 5c1bd648
+65166718
+version65166718
+      109) returns the fingerprint for bef5a2f9
+65166718
+version65166718
+      110) returns the fingerprint for ee7ab90c
+65166718
+version65166718
+      111) returns the fingerprint for d880d7d8
+65166718
+version65166718
+      112) returns the fingerprint for d69aa102
+65166718
+version65166718
+      113) returns the fingerprint for bd16bee5
+65166718
+version65166718
+      114) returns the fingerprint for 5a61ff8e
+65166718
+version65166718
+      115) returns the fingerprint for d8ab4937
+65166718
+version65166718
+      116) returns the fingerprint for 78412e3a
+65166718
+version65166718
+      117) returns the fingerprint for 31a507b8
+65166718
+version65166718
+      118) returns the fingerprint for 26132fdb
+65166718
+version65166718
+      119) returns the fingerprint for 1a87677b
+65166718
+version65166718
+      120) returns the fingerprint for e371d69b
+76067358
+version76067358
+      ✓ returns the fingerprint for 3442193e
+76067358
+version76067358
+      ✓ returns the fingerprint for 5c1bd648
+    neutered / isNeutered
+65165636
+version65165636
+      121) drops the private key for 3442193e
+65165636
+version65165636
+      122) drops the private key for 5c1bd648
+65165636
+version65165636
+      123) drops the private key for bef5a2f9
+65165636
+version65165636
+      124) drops the private key for ee7ab90c
+65165636
+version65165636
+      125) drops the private key for d880d7d8
+65165636
+version65165636
+      126) drops the private key for d69aa102
+65165636
+version65165636
+      127) drops the private key for bd16bee5
+65165636
+version65165636
+      128) drops the private key for 5a61ff8e
+65165636
+version65165636
+      129) drops the private key for d8ab4937
+65165636
+version65165636
+      130) drops the private key for 78412e3a
+65165636
+version65165636
+      131) drops the private key for 31a507b8
+65165636
+version65165636
+      132) drops the private key for 26132fdb
+65165636
+version65165636
+      133) drops the private key for 1a87677b
+65165636
+version65165636
+      134) drops the private key for e371d69b
+76066276
+version76066276
+      ✓ drops the private key for 3442193e
+76066276
+version76066276
+      ✓ drops the private key for 5c1bd648
+    derive
+      135) m/0' from 3442193e by path
+      136) m/0'/1 from 3442193e by path
+      137) m/0'/1/2' from 3442193e by path
+      138) m/0'/1/2'/2 from 3442193e by path
+      139) m/0'/1/2'/2/1000000000 from 3442193e by path
+      140) m/0'/1 from 5c1bd648 by path
+      141) m/0'/1/2' from 5c1bd648 by path
+      142) m/0'/1/2'/2 from 5c1bd648 by path
+      143) m/0'/1/2'/2/1000000000 from 5c1bd648 by path
+      144) m/0'/1/2' from bef5a2f9 by path
+      145) m/0'/1/2'/2 from bef5a2f9 by path
+      146) m/0'/1/2'/2/1000000000 from bef5a2f9 by path
+      147) m/0'/1/2'/2 from ee7ab90c by path
+      148) m/0'/1/2'/2/1000000000 from ee7ab90c by path
+      149) m/0'/1/2'/2/1000000000 from d880d7d8 by path
+      150) m/0' from 3442193e
+      151) m/0'/1 from 3442193e
+      152) m/0'/1/2' from 3442193e
+      153) m/0'/1/2'/2 from 3442193e
+      154) m/0'/1/2'/2/1000000000 from 3442193e
+      155) m/0 from bd16bee5 by path
+      156) m/0/2147483647' from bd16bee5 by path
+      157) m/0/2147483647'/1 from bd16bee5 by path
+      158) m/0/2147483647'/1/2147483646' from bd16bee5 by path
+      159) m/0/2147483647'/1/2147483646'/2 from bd16bee5 by path
+      160) m/0/2147483647' from 5a61ff8e by path
+      161) m/0/2147483647'/1 from 5a61ff8e by path
+      162) m/0/2147483647'/1/2147483646' from 5a61ff8e by path
+      163) m/0/2147483647'/1/2147483646'/2 from 5a61ff8e by path
+      164) m/0/2147483647'/1 from d8ab4937 by path
+      165) m/0/2147483647'/1/2147483646' from d8ab4937 by path
+      166) m/0/2147483647'/1/2147483646'/2 from d8ab4937 by path
+      167) m/0/2147483647'/1/2147483646' from 78412e3a by path
+      168) m/0/2147483647'/1/2147483646'/2 from 78412e3a by path
+      169) m/0/2147483647'/1/2147483646'/2 from 31a507b8 by path
+      170) m/0 from bd16bee5
+      171) m/0/2147483647' from bd16bee5
+      172) m/0/2147483647'/1 from bd16bee5
+      173) m/0/2147483647'/1/2147483646' from bd16bee5
+      174) m/0/2147483647'/1/2147483646'/2 from bd16bee5
+      175) m/44'/0'/0'/0/0' from 1a87677b by path
+      ✓ m/0' from 3442193e by path (40ms)
+      ✓ m/0' from 3442193e
+65165636
+version65165636
+      176) works for Private -> public (neutered)
+65165636
+version65165636
+      177) works for Private -> public (neutered, hardened)
+65166718
+version65166718
+      178) works for Public -> public
+65166718
+version65166718
+      179) throws on Public -> public (hardened)
+65166718
+version65166718
+      180) throws on wrong types
+76066276
+      ✓ works when private key has leading zeros (96ms)
+
+  zeon-js (basic)
+    181) can generate a random zeon address
+    182) can generate an address from a SHA256 hash
+    ✓ can generate a random keypair for alternative networks
+    183) can import an address via WIF
+
+  zeon-js (BIP32)
+    184) can create a BIP32 wallet external address
+    185) can create a BIP44, zeon, account 0, external address
+    ✓ can recover a BIP32 parent private key from the parent public key, and a derived, non-hardened child private key (151ms)
+
+  ipfs.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have createHashRegistration property
+    ✓ should create transaction with fee override
+    ✓ should fail to create transaction with invalid fee override
+    ✓ should create transaction with hashid
+{ type: 5,
+  timestamp: 56858511,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 0,
+  fee: 10000000,
+  vendorFieldHex: '00000000000000000000516d5732575169376a36633755674a546172416374703774444e696b453442327158744643664c506473676154512f6361742e6a7067',
+  signature: '304402205b187afc14ddc9f01aed202ed00c7c66b89f5c795abe8c36463025c6fb4419dc02202658e24a316315dc2a651b82ea48f725b7eb501f0ecd61aebe8b44006019aafe' }
+    ✓ should be deserialised correctly
+    returned transaction
+      ✓ should be object
+      ✓ should have id as string
+      ✓ should have vendorField as string
+      ✓ should have vendorFieldHex equal to '00000000000000000000516d5732575169376a36633755674a546172416374703774444e696b453442327158744643664c506473676154512f6361742e6a7067'
+      ✓ should have type as number and equal 5
+      ✓ should have timestamp as number
+      ✓ should have senderPublicKey as hex string
+      ✓ should have amount as number and equal to 0
+      ✓ should have empty asset object
+      ✓ should does not have second signature
+      ✓ should have signature as hex string
+      ✓ should be signed correctly
+      ✓ should not be signed correctly now (changed amount)
+      ✓ should not be signed correctly now (changed vendorField)
+
+  multisignature.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have properties
+    #createMultisignature
+      ✓ should be function
+      ✓ should create multisignature transaction (39ms)
+      ✓ should create multisignature transaction from keys
+      ✓ should have the correct multisignature fee
+      ✓ should create transaction with fee override
+      ✓ should fail to create transaction with invalid fee override
+{ type: 4,
+  timestamp: 56858512,
+  senderPublicKey: '0218c1c3718e5aae9ee90ce68d49ebd0821eff8821e53e38ef1c188d9c7310863c',
+  amount: 0,
+  fee: 2000000000,
+  vendorFieldHex: '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  signSignature: '3044022059d5e0646909be0f6954b3138bdacc99f49a9a7ba366c6d0033eab855dbe34f80220680301b33b21883f32696784e2dc76381355f71ce514698ae3202491afe33f95',
+  signature: '304402201a494eaa5e725a7deae51ccbe9128a00a7f06a22bb286e99439f269e32ea414d02205d90c7eda53b3dd4b0d5f648f5f2ed52560d62f9da243e352ba452813d7f64fc',
+  asset: 
+   { multisignature: { min: 2, lifetime: 255, keysgroup: [Array] } } }
+["+03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933","+13a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933","+23a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933"]
+      ✓ should be deserialised correctly (44ms)
+      returned multisignature transaction
+        ✓ should have empty recipientId
+        ✓ should have amount equal 0
+        ✓ should have asset
+        ✓ should have multisignature inside asset
+        multisignature asset
+          ✓ should be ok
+          ✓ should be object
+          ✓ should have min property
+          ✓ should have lifetime property
+          ✓ should have keysgroup property
+          ✓ should have 3 keys keysgroup
+
+  signature.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have properties
+    #createSignature
+      ✓ should be function
+      ✓ should create signature transaction
+      ✓ should create signature transaction
+      ✓ should create transaction with fee override
+      ✓ should fail to create transaction with invalid fee override
+{ type: 1,
+  timestamp: 56858512,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 0,
+  fee: 500000000,
+  vendorFieldHex: '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  asset: 
+   { signature: 
+      { publicKey: '0380728436880a0a11eadf608c4d4e7f793719e044ee5151074a5f2d5d43cb9066' } },
+  signature: '304402205a9e16f102a31914c7809f9138910e9a53c90c7aeaf6bee13d967707290a790602203a4f0fda2b3fe36ee186d089be50c444ae8a71cd89ebb5e86329b9d74d4d83ea' }
+      ✓ should be deserialised correctly
+      returned signature transaction
+        ✓ should have empty recipientId
+        ✓ should have amount equal 0
+        ✓ should have asset
+        ✓ should have signature inside asset
+        signature asset
+          ✓ should be ok
+          ✓ should be object
+          ✓ should have publicKey property
+          ✓ should have publicKey in hex
+          ✓ should have publicKey in 33 bytes
+
+  slots.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have properties
+    .interval
+      ✓ should be ok
+      ✓ should be number and not NaN
+    .delegates
+      ✓ should be ok
+      ✓ should be number and not NaN
+    #getTime
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return epoch time as number, equal to 10
+    #getRealTime
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return return real time, convert 10 to 1490101210000
+    #getSlotNumber
+      ✓ should be ok
+      ✓ should be a function
+      ✓ should return slot number, equal to 1
+    #getSlotTime
+      ✓ should be ok
+      ✓ should be function
+      ✓ should return slot time number, equal to 
+    #getNextSlot
+      ✓ should be ok
+      ✓ should be function
+      ✓ should return next slot number
+    #getLastSlot
+      ✓ should be ok
+      ✓ should be function
+      ✓ should return last slot number
+
+  transaction.js
+    ✓ should be object
+    ✓ should have properties
+    #createTransaction
+      ✓ should be a function
+      ✓ should create transaction without second signature
+      ✓ should create transaction without second signature from keys
+      ✓ should create transaction with vendorField
+      ✓ should create transaction with fee override
+      ✓ should fail to create transaction with invalid fee override
+      ✓ should fail if transaction with vendorField length > 64
+      ✓ should be ok if transaction with vendorField length = 64
+      returned transaction
+        ✓ should be object
+        ✓ should have id as string
+        ✓ should have type as number and eqaul 0
+        ✓ should have timestamp as number
+        ✓ should have senderPublicKey as hex string
+        ✓ should have recipientId as string and to be equal PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2
+        ✓ should have amount as number and eqaul to 1000
+        ✓ should have empty asset object
+        ✓ should does not have second signature
+        ✓ should have signature as hex string
+        ✓ should be signed correctly
+{ type: 0,
+  timestamp: 56858512,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 1000,
+  fee: 10000000,
+  vendorFieldHex: '7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a',
+  recipientId: 'PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2',
+  signature: '304402202c1389c220eeaf3d6f1e9980269b21289fe5debed2fae9499dff774eb0cf28db02201550060932b92182cc3660644d1e2261ef393ca0bc53f9a8ad1591f34a46e78b' }
+        ✓ should be deserialised correctly
+        ✓ should not be signed correctly now
+    createTransaction and try to tamper signature
+      ✓ should not validate overflown signatures
+    #createTransaction with second secret
+      ✓ should be a function
+      ✓ should not accept bitcoin address
+      ✓ should create transaction without second signature (40ms)
+      returned transaction
+        ✓ should be object
+        ✓ should have id as string
+        ✓ should have type as number and eqaul 0
+        ✓ should have timestamp as number
+        ✓ should have senderPublicKey as hex string
+        ✓ should have recipientId as string and to be equal PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2
+        ✓ should have amount as number and eqaul to 1000
+        ✓ should have empty asset object
+        ✓ should have second signature
+        ✓ should have signature as hex string
+        ✓ should have signSignature as hex string
+{ type: 0,
+  timestamp: 56858512,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 1000,
+  fee: 10000000,
+  vendorFieldHex: '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  recipientId: 'PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2',
+  signature: '304402200c3631402ea07f944163827269d6b83168c95008050d55418f96cc6c1ef5a65a02200e296136167018af2f744539a608448e19d8b595a3e57170b8c933322d77e5d1',
+  signSignature: '30440220116f9cd6ad6ebc63c239df5c1595812a63c1a1b64b4dcf7d1360e7b5341c9d9f02206aadfac5f0dc71b26d21f8f0d054efee26dba722c10edfb3224e4b8e9eca7c88' }
+        ✓ should be deserialised correctly
+        ✓ should be signed correctly
+        ✓ should be second signed correctly
+        ✓ should not be signed correctly now
+        ✓ should not be second signed correctly now
+
+  vote.js
+    ✓ should be ok
+    ✓ should be object
+    ✓ should have createVote property
+    #createVote
+      ✓ should be ok
+      ✓ should be function
+      ✓ should create vote
+      ✓ should create vote from ecpair
+      186) should create vote from wif
+      ✓ should create transaction with fee override (39ms)
+      ✓ should fail to create transaction with invalid fee override
+{ type: 3,
+  timestamp: 56858512,
+  senderPublicKey: '03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933',
+  amount: 0,
+  fee: 100000000,
+  vendorFieldHex: '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  recipientId: 'PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2',
+  signSignature: '3045022100e62b80c316dd88eafa59e0cfe3fe7a8f818cbd08fe0b24d966ba3a0ba0976524022048b2c2fbd4e6a6715ad937b9709905f0145eab9b67ac6d718e26fbb00959b9a1',
+  signature: '3045022100c08496275e45085de89d9df314d5be49d7e95d7d39ff8e7d65f5e21975286b05022036018d035be09bd9ab998adcf5d5841f36ce1d3b4b132f0c32ff3aa56c18d5e0',
+  asset: 
+   { votes: 
+      [ '+03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933' ] } }
+      ✓ should be deserialised correctly
+      returned vote
+        ✓ should be ok
+        ✓ should be object
+        ✓ should have recipientId string equal to sender
+        ✓ should have amount number equal to 0
+        ✓ should have type number equal to 3
+        ✓ should have timestamp number
+        ✓ should have senderPublicKey hex string equal to sender public key
+        ✓ should have signature hex string
+        ✓ should have second signature hex string
+        ✓ should be signed correctly
+        ✓ should be second signed correctly
+        ✓ should not be signed correctly now
+        ✓ should not be second signed correctly now
+        ✓ should have asset
+        vote asset
+          ✓ should be ok
+          ✓ should be object
+          ✓ should be not empty
+          ✓ should contains one element
+          ✓ should have public keys in hex
+          ✓ should be equal to sender public key
+
+
+  404 passing (5s)
+  186 failing
+
+  1) crypto.js
+       #getAddress
+         should generate address by publicKey:
+
+      AssertionError: expected 'QPLY5pUNDYv3xvC3qT1wvAjiYgb8G6ycyj' to be 'PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2'
+      + expected - actual
+
+      -QPLY5pUNDYv3xvC3qT1wvAjiYgb8G6ycyj
+      +PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2
+      
+      at Assertion.fail (node_modules/should/cjs/should.js:275:17)
+      at Assertion.value (node_modules/should/cjs/should.js:356:19)
+      at Context.<anonymous> (test/crypto/index.js:273:27)
+
+  2) crypto.js
+       #getAddress
+         should generate address by publicKey - second test:
+
+      AssertionError: expected 'PHG94GGzfVqJMCYfidiWfEthMihUFhN8Rx' to be 'ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy'
+      + expected - actual
+
+      -PHG94GGzfVqJMCYfidiWfEthMihUFhN8Rx
+      +ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy
+      
+      at Assertion.fail (node_modules/should/cjs/should.js:275:17)
+      at Assertion.value (node_modules/should/cjs/should.js:356:19)
+      at Context.<anonymous> (test/crypto/index.js:293:27)
+
+  3) crypto.js
+       #getAddress
+         should generate address by publicKey - second test - DevNET:
+
+      AssertionError: expected 'XL2CkSEks76phsLQD2NtMkLRworLYkqxdR' to be 'ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy'
+      + expected - actual
+
+      -XL2CkSEks76phsLQD2NtMkLRworLYkqxdR
+      +ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy
+      
+      at Assertion.fail (node_modules/should/cjs/should.js:275:17)
+      at Assertion.value (node_modules/should/cjs/should.js:356:19)
+      at Context.<anonymous> (test/crypto/index.js:303:27)
+
+  4) crypto.js
+       #getAddress
+         should generate the same address as ECPair.getAddress():
+
+      AssertionError: expected 'XL2CkSEks76phsLQD2NtMkLRworLYkqxdR' to be 'ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy'
+      + expected - actual
+
+      -XL2CkSEks76phsLQD2NtMkLRworLYkqxdR
+      +ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy
+      
+      at Assertion.fail (node_modules/should/cjs/should.js:275:17)
+      at Assertion.value (node_modules/should/cjs/should.js:356:19)
+      at Context.<anonymous> (test/crypto/index.js:314:27)
+
+  5) crypto.js
+       #getAddress
+         should generate the same address as ECPair.getAddress() - DevNET:
+
+      AssertionError: expected 'XL2CkSEks76phsLQD2NtMkLRworLYkqxdR' to be 'ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy'
+      + expected - actual
+
+      -XL2CkSEks76phsLQD2NtMkLRworLYkqxdR
+      +ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy
+      
+      at Assertion.fail (node_modules/should/cjs/should.js:275:17)
+      at Assertion.value (node_modules/should/cjs/should.js:356:19)
+      at Context.<anonymous> (test/crypto/index.js:325:27)
+
+  6) ECPair
+       constructor
+         supports the network option:
+     AssertionError [ERR_ASSERTION]: { messagePrefix: '\u0018ZEON Signed Message:\n',
+  bip32: { public: 37565751, private: 36786474 },
+  name: 'mainnet',
+  nethash: === undefined
+      at Context.<anonymous> (test/ecpair/index.js:45:14)
+
+  7) ECPair
+       fromWIF
+         imports bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  8) ECPair
+       fromWIF
+         imports 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41 (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  9) ECPair
+       fromWIF
+         imports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  10) ECPair
+       fromWIF
+         imports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  11) ECPair
+       fromWIF
+         imports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2 (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  12) ECPair
+       fromWIF
+         imports S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  13) ECPair
+       fromWIF
+         imports 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  14) ECPair
+       fromWIF
+         imports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  15) ECPair
+       fromWIF
+         imports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  16) ECPair
+       fromWIF
+         imports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2 (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  17) ECPair
+       fromWIF
+         imports UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY (devnet):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  18) ECPair
+       fromWIF
+         imports 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC (devnet):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  19) ECPair
+       fromWIF
+         imports SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9 (zeon):
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:90:30)
+
+  20) ECPair
+       toWIF
+         exports bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  21) ECPair
+       toWIF
+         exports 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  22) ECPair
+       toWIF
+         exports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  23) ECPair
+       toWIF
+         exports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  24) ECPair
+       toWIF
+         exports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  25) ECPair
+       toWIF
+         exports S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  26) ECPair
+       toWIF
+         exports 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  27) ECPair
+       toWIF
+         exports SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  28) ECPair
+       toWIF
+         exports SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  29) ECPair
+       toWIF
+         exports 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  30) ECPair
+       toWIF
+         exports UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  31) ECPair
+       toWIF
+         exports 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  32) ECPair
+       toWIF
+         exports SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:128:30)
+
+  33) ECPair
+       makeRandom
+         allows a custom RNG to be used:
+
+      AssertionError [ERR_ASSERTION]: 'QNkS5nEHtsL5nW6cGenLnmaCsGPnCwJiWfdzGsAA3D5v4m6oM4Mj' === '8pR9uX3msKxfR5UgYM43dkjVjayUp6YpgecU2618GZosTcJmZAL'
+      + expected - actual
+
+      -QNkS5nEHtsL5nW6cGenLnmaCsGPnCwJiWfdzGsAA3D5v4m6oM4Mj
+      +8pR9uX3msKxfR5UgYM43dkjVjayUp6YpgecU2618GZosTcJmZAL
+      
+      at Context.<anonymous> (test/ecpair/index.js:155:14)
+
+  34) ECPair
+       makeRandom
+         supports the options parameter:
+     AssertionError [ERR_ASSERTION]: { messagePrefix: '\u0018ZEON Signed Message:\n',
+  bip32: { public: 37565751, private: 36786474 },
+  name: 'mainnet',
+  nethash: === undefined
+      at Context.<anonymous> (test/ecpair/index.js:172:14)
+
+  35) ECPair
+       makeRandom
+         uses randombytes RNG
+           generates a ECPair:
+
+      AssertionError [ERR_ASSERTION]: 'QNkS5nEHtsL5nW6cGenLnmaCsGPnCwJiWfdzGsAA3D5v4m6oM4Mj' === '8pR9uX3msKxfR5UgYM43dkjVjayUp6YpgecU2618GZosTcJmZAL'
+      + expected - actual
+
+      -QNkS5nEHtsL5nW6cGenLnmaCsGPnCwJiWfdzGsAA3D5v4m6oM4Mj
+      +8pR9uX3msKxfR5UgYM43dkjVjayUp6YpgecU2618GZosTcJmZAL
+      
+      at Context.<anonymous> (test/ecpair/index.js:146:16)
+
+  36) ECPair
+       getAddress
+         returns ZRhKihctrKhUz1XEgaLD1yYcKzs3NKYfVA for bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  37) ECPair
+       getAddress
+         returns ZSHaBvrnYsoFB2MLFVw4JvvtumJg9X6LAn for 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  38) ECPair
+       getAddress
+         returns PCyCoyhJWPvTgebGDueTt8azenoT5LKdSd for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  39) ECPair
+       getAddress
+         returns PALki8D2ekYsEKtwaNS5WS5cfYmaLKt5Ht for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  40) ECPair
+       getAddress
+         returns PVpcLkN2EjL3QLaMmo1XD4ZAKk5C1HEaCR for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  41) ECPair
+       getAddress
+         returns PVB1zsuWTTWEBGSSGsaQ8eDjTVy475WJq8 for S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  42) ECPair
+       getAddress
+         returns PQHC9V4aZeYks7JEY3y9WCs1BaJYZt5aEB for 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  43) ECPair
+       getAddress
+         returns PCyCoyhJWPvTgebGDueTt8azenoT5LKdSd for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  44) ECPair
+       getAddress
+         returns PALki8D2ekYsEKtwaNS5WS5cfYmaLKt5Ht for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  45) ECPair
+       getAddress
+         returns PVpcLkN2EjL3QLaMmo1XD4ZAKk5C1HEaCR for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  46) ECPair
+       getAddress
+         returns XD6pQJAnrMpPazgg4m6TCwXMFdvSV1Mtu6 for UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  47) ECPair
+       getAddress
+         returns XYag2vKnSLbZm1N6GBftuZztuqE4KGY8r9 for 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  48) ECPair
+       getAddress
+         returns PXXrFBDUCv6zDAEoYqqEhaJVh6ttAD4JyT for SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:198:30)
+
+  49) ECPair
+       getNetwork
+         returns zeon for bbTwsWX9r3avTz7BWhJtVZmbgCPKJV6k2z3vcsBS5pBLvbEpCNaN:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  50) ECPair
+       getNetwork
+         returns zeon for 8pqkFdx4v3zrWqcPASyGfUX1b77dqYKHEg5eMyBjHwrJQAA9L41:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  51) ECPair
+       getNetwork
+         returns zeon for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  52) ECPair
+       getNetwork
+         returns zeon for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  53) ECPair
+       getNetwork
+         returns zeon for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  54) ECPair
+       getNetwork
+         returns zeon for S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  55) ECPair
+       getNetwork
+         returns zeon for 6hTYzRJRsKyVvTnu7YWs9WvegPh5WiFrmf3JUTwPzQ8vtvPwoBG:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  56) ECPair
+       getNetwork
+         returns zeon for SB3iDxYmKgjkhfDZSKgLaBrp3Ynzd3yd3ZZF2ujVBK7vLpv6hWKK:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  57) ECPair
+       getNetwork
+         returns zeon for SDCe8styqokHi4pSe5jVRiYVV63Mef2TGsE1D4HhtGAL1DytHLtd:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  58) ECPair
+       getNetwork
+         returns zeon for 6iHEQ5jbB9n9meZxCaFAAE39ii1zEyCCquca8GFCyvjSc1UFLp2:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  59) ECPair
+       getNetwork
+         returns devnet for UaUjHTfNeGQVJM2jVJ3nAW4HU3Fo1MN5swC6AKqDjvDiWXAunqqY:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  60) ECPair
+       getNetwork
+         returns devnet for 7FP9Dnv6oxbmvmsEhrB9RMdYNXsUeEgDS8kJ2fFYtQqeVxBZpAC:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  61) ECPair
+       getNetwork
+         returns zeon for SJ9pmbcpwHfWdVGMZxVi8mAwZ45Gsdq4BeR8y6poSyje5EthYKP9:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/ecpair/index.js:209:30)
+
+  62) HDNode
+       fromSeed*
+         calculates privKey and chainCode for 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'QWRT9AqbcMn65Uaa2F5cfcFAjWtcwsr8vfgvKDZU25HnS9gkJG7W' === 'SHP217APiCmjmgjnf9pLDhP1ijJSxu6rsyAV2fibupLKp86JhaBo'
+      + expected - actual
+
+      -QWRT9AqbcMn65Uaa2F5cfcFAjWtcwsr8vfgvKDZU25HnS9gkJG7W
+      +SHP217APiCmjmgjnf9pLDhP1ijJSxu6rsyAV2fibupLKp86JhaBo
+      
+      at Context.<anonymous> (test/hdnode/index.js:79:16)
+
+  63) HDNode
+       fromSeed*
+         calculates privKey and chainCode for bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'QR8Srp6EQYwwvi9iREa81vapzFW1dnBhCR4Mvh9NBLJTNi2ao9XN' === 'SC61ikR2WPwbcvJw49Jqa1ifyTuqeoSR9iXve9JW55LzkgT9z6Ux'
+      + expected - actual
+
+      -QR8Srp6EQYwwvi9iREa81vapzFW1dnBhCR4Mvh9NBLJTNi2ao9XN
+      +SC61ikR2WPwbcvJw49Jqa1ifyTuqeoSR9iXve9JW55LzkgT9z6Ux
+      
+      at Context.<anonymous> (test/hdnode/index.js:79:16)
+
+  64) HDNode
+       fromSeed*
+         calculates privKey and chainCode for 1a87677b:
+
+      AssertionError [ERR_ASSERTION]: 'QNcdMJtb7kSYBPpjZ1YYVXT7NT8wGcVTbPD4h4ZLf56og3CYfk1T' === 'S9aCDFDPDbSBsbyxBvHG3caxMfYmHdkBYggdQWiUYp9M41cTBtT2'
+      + expected - actual
+
+      -QNcdMJtb7kSYBPpjZ1YYVXT7NT8wGcVTbPD4h4ZLf56og3CYfk1T
+      +S9aCDFDPDbSBsbyxBvHG3caxMfYmHdkBYggdQWiUYp9M41cTBtT2
+      
+      at Context.<anonymous> (test/hdnode/index.js:79:16)
+
+  65) HDNode
+       fromBase58 / toBase58
+         exports ppub3VMFY2ZqdyFmTWzjmDaYdTRpTWyxooG557FsKezbQB7LR6S9a1P9R2maPNUYSzWU3gGT1d9M4MJ9oywMu5tuiBzYjQLUnvhjeHzr7fp2crQ (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  66) HDNode
+       fromBase58 / toBase58
+         exports ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  67) HDNode
+       fromBase58 / toBase58
+         exports ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  68) HDNode
+       fromBase58 / toBase58
+         exports ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  69) HDNode
+       fromBase58 / toBase58
+         exports ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  70) HDNode
+       fromBase58 / toBase58
+         exports ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  71) HDNode
+       fromBase58 / toBase58
+         exports ppub3VMFY2ZqdyFmT8W4sNeq5f9ahi8PVRWtkh3bcbjRNZECi5TLkAA5qvwAjUZXAEsRxEWEvHoWTRoQXmfb2Gp4r6zVbLXwdRCPxffxPXQ3xuq (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  72) HDNode
+       fromBase58 / toBase58
+         exports ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  73) HDNode
+       fromBase58 / toBase58
+         exports ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  74) HDNode
+       fromBase58 / toBase58
+         exports ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  75) HDNode
+       fromBase58 / toBase58
+         exports ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9 (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  76) HDNode
+       fromBase58 / toBase58
+         exports ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  77) HDNode
+       fromBase58 / toBase58
+         exports ppub3VMFY2ZqdyFmU74LfU167KTxsRiZEoeEdhbqNZcc45k5ov1SD95DLUJx1evC6i8dhwhe8gg183Ropo1RF5pX6up81BjUewYLqpDSexyN7RZ (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  78) HDNode
+       fromBase58 / toBase58
+         exports ppub3fx5MRjvTmLES3yDXLduF78LiiUE55BriYPFKi2Ct9VwxxKgkn2zLtFDqKRatQYG6ML8ncGjKjnswKua8jGoY298fLfmcwEBwdmsnxGWF2P (public) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:181:25)
+
+  79) HDNode
+       fromBase58 / toBase58
+         exports pprv7GMu8X2wobhUF2vGfC3YGKV5uV9UQLYDhtLGXGayqqaMYJ712U4tsET6Y6qEw76Q89NWWg8CR3wr1TkDbr4G69zTwhcFdQC8tBQ75N8EkH9 (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  80) HDNode
+       fromBase58 / toBase58
+         exports pprv7JdK8ELQtrpTPe3yrwvB9MbCEJhpnR2EPVmAVMy6p2mduaQBShbyzNoWKNBaLpUMqCGCsyT4oQnijDmwFSLStE4z1aHPsMu2bC2xWSGHtwh (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  81) HDNode
+       fromBase58 / toBase58
+         exports pprv7LoSL1tJHZhXE66RbCp3k6UrHggvnSkXKpS15djukfZr97uKAW2HwwhjjRNdwkFQHH1tgo3Vt7k8sAJANn8RfPZRXMF7w7ftFzML3Q6DpR5 (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  82) HDNode
+       fromBase58 / toBase58
+         exports pprv7PQiNYi9zSYw6FtWqoDR76WzWqZT3zLWfMfgKy34vXwHYy6RyFrirPFfHTbFuyktnk3HHFzRJXa36N2uxo3cnV15sxog63upsG6Yg3RfQkn (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  83) HDNode
+       fromBase58 / toBase58
+         exports pprv7Re7Cyq7AvDvAjNEY4RVzbgJberBgaei6qYyavZYEyVtv4io32Z63xiaxmziNeAKrYAyuBDzDM2CZYwNADaxysb8HCtme8jY2EZiBYnGEVz (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  84) HDNode
+       fromBase58 / toBase58
+         exports pprv7TMsgfSMJ3c7h59gebzEJJgJPtRVW5Tju5wXqCwgT3tPdC8BZSokK4sebdmvHZHQTwaEgYCw4PZKZiwjhHbh6qEfchezm3VFJa84vagQoBC (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  85) HDNode
+       fromBase58 / toBase58
+         exports pprv7GMu8X2wobhUEeRbmM7piXCr9gHu5xo3PU7zpDKopDhDqH8CCcqqJ8cgtAcJ7ceVNC7wFxaeh9z36zUKeGSxhXKEQ7gVmk6sTS2LSDkDKLB (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  86) HDNode
+       fromBase58 / toBase58
+         exports pprv7KdeQEiuHcXYkv1tu8VhnKcNWe39nwHKwdsMz2MFtdZBXFaAmtBuSyBwTft6kgVKmrMm9xzP8KQATW79CYx1dkUdQJ6ZAEGcaqvtocmmy6A (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  87) HDNode
+       fromBase58 / toBase58
+         exports pprv7LnheqkRfWhevnE5KaVMFfHvuPG4LRT22nwtuRG2YNKZyYodPmcDf2yY52N5UwDog5gevzC2BKuGtjquvvZ9D3vBq2KtvjzsNdGRZw7pHVS (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  88) HDNode
+       fromBase58 / toBase58
+         exports pprv7Pbg4rjMq9zr2PuDPEdvDcEAEv8ZScNHMESkkUvMrFg1eNfnhH8vYwMuupZhWeRVz33MgHGQasaVDSd4yp5XDXjUxnrhmqyFrRhA3fqFLdN (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  89) HDNode
+       fromBase58 / toBase58
+         exports pprv7QmhypfiSYxZKM8p7iTTb7vM9ebvVaznNwAeHCcmh1wG6izinx4w5Tj1YXJ694onXcL3z73PyFA52ZiSVkz1uNQenjQ1v3ztC1hg7MkAXR4 (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  90) HDNode
+       fromBase58 / toBase58
+         exports pprv7S8jwFtDxjGo4cKhqnb9ZsJKYi92juus36nXgyyGKonrAvLHxazhG2g1cvy6J5trZvBnGrgDRLzm57bxE5MExM9NbauWyU8btP3EC2SDdXn (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  91) HDNode
+       fromBase58 / toBase58
+         exports pprv7GMu8X2wobhUFcysZSU5kBXEKPt4qLvPGUgEaBCzVkD6w7gHfbkxnfzUANj8bGarM1JjYgsbYusD2kGJys5yHdQiVQ1WcgTTbTbYX9j8gbE (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  92) HDNode
+       fromBase58 / toBase58
+         exports pprv7SxiwvD2dPmwDZtkRK6tsyBcAgdjfcU1MKTeXKcbKoxy69zYDEijo5vjz4z19v4ocJKsFaaT8bkfjmGKMaRXFb2WSmjVSNQbpXnToWJJWQ1 (private) correctly:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:190:25)
+
+  93) HDNode
+       getIdentifier
+         returns the identifier for 3442193e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  94) HDNode
+       getIdentifier
+         returns the identifier for 5c1bd648:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  95) HDNode
+       getIdentifier
+         returns the identifier for bef5a2f9:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  96) HDNode
+       getIdentifier
+         returns the identifier for ee7ab90c:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  97) HDNode
+       getIdentifier
+         returns the identifier for d880d7d8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  98) HDNode
+       getIdentifier
+         returns the identifier for d69aa102:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  99) HDNode
+       getIdentifier
+         returns the identifier for bd16bee5:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  100) HDNode
+       getIdentifier
+         returns the identifier for 5a61ff8e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  101) HDNode
+       getIdentifier
+         returns the identifier for d8ab4937:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  102) HDNode
+       getIdentifier
+         returns the identifier for 78412e3a:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  103) HDNode
+       getIdentifier
+         returns the identifier for 31a507b8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  104) HDNode
+       getIdentifier
+         returns the identifier for 26132fdb:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  105) HDNode
+       getIdentifier
+         returns the identifier for 1a87677b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  106) HDNode
+       getIdentifier
+         returns the identifier for e371d69b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:211:25)
+
+  107) HDNode
+       getFingerprint
+         returns the fingerprint for 3442193e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  108) HDNode
+       getFingerprint
+         returns the fingerprint for 5c1bd648:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  109) HDNode
+       getFingerprint
+         returns the fingerprint for bef5a2f9:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  110) HDNode
+       getFingerprint
+         returns the fingerprint for ee7ab90c:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  111) HDNode
+       getFingerprint
+         returns the fingerprint for d880d7d8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  112) HDNode
+       getFingerprint
+         returns the fingerprint for d69aa102:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  113) HDNode
+       getFingerprint
+         returns the fingerprint for bd16bee5:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  114) HDNode
+       getFingerprint
+         returns the fingerprint for 5a61ff8e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  115) HDNode
+       getFingerprint
+         returns the fingerprint for d8ab4937:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  116) HDNode
+       getFingerprint
+         returns the fingerprint for 78412e3a:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  117) HDNode
+       getFingerprint
+         returns the fingerprint for 31a507b8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  118) HDNode
+       getFingerprint
+         returns the fingerprint for 26132fdb:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  119) HDNode
+       getFingerprint
+         returns the fingerprint for 1a87677b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  120) HDNode
+       getFingerprint
+         returns the fingerprint for e371d69b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:221:25)
+
+  121) HDNode
+       neutered / isNeutered
+         drops the private key for 3442193e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  122) HDNode
+       neutered / isNeutered
+         drops the private key for 5c1bd648:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  123) HDNode
+       neutered / isNeutered
+         drops the private key for bef5a2f9:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  124) HDNode
+       neutered / isNeutered
+         drops the private key for ee7ab90c:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  125) HDNode
+       neutered / isNeutered
+         drops the private key for d880d7d8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  126) HDNode
+       neutered / isNeutered
+         drops the private key for d69aa102:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  127) HDNode
+       neutered / isNeutered
+         drops the private key for bd16bee5:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  128) HDNode
+       neutered / isNeutered
+         drops the private key for 5a61ff8e:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  129) HDNode
+       neutered / isNeutered
+         drops the private key for d8ab4937:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  130) HDNode
+       neutered / isNeutered
+         drops the private key for 78412e3a:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  131) HDNode
+       neutered / isNeutered
+         drops the private key for 31a507b8:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  132) HDNode
+       neutered / isNeutered
+         drops the private key for 26132fdb:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  133) HDNode
+       neutered / isNeutered
+         drops the private key for 1a87677b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  134) HDNode
+       neutered / isNeutered
+         drops the private key for e371d69b:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:231:25)
+
+  135) HDNode
+       derive
+         m/0' from 3442193e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34124HYfczHonk4gvhLPcWHjj516X2iCMn36A52jFm9nrS5GqDFGBFJeiwVsnMEA2Zw6h3b87nPrVF5FAnrmUCbiVQzRTcjeNnXC3Us3pkaGk' === 'ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp'
+      + expected - actual
+
+      -Ua34124HYfczHonk4gvhLPcWHjj516X2iCMn36A52jFm9nrS5GqDFGBFJeiwVsnMEA2Zw6h3b87nPrVF5FAnrmUCbiVQzRTcjeNnXC3Us3pkaGk
+      +ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  136) HDNode
+       derive
+         m/0'/1 from 3442193e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt' === 'ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR'
+      + expected - actual
+
+      -Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt
+      +ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  137) HDNode
+       derive
+         m/0'/1/2' from 3442193e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i' === 'ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze'
+      + expected - actual
+
+      -Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i
+      +ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  138) HDNode
+       derive
+         m/0'/1/2'/2 from 3442193e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF' === 'ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm'
+      + expected - actual
+
+      -Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF
+      +ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  139) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from 3442193e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  140) HDNode
+       derive
+         m/0'/1 from 5c1bd648 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt' === 'ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR'
+      + expected - actual
+
+      -Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt
+      +ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  141) HDNode
+       derive
+         m/0'/1/2' from 5c1bd648 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i' === 'ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze'
+      + expected - actual
+
+      -Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i
+      +ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  142) HDNode
+       derive
+         m/0'/1/2'/2 from 5c1bd648 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF' === 'ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm'
+      + expected - actual
+
+      -Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF
+      +ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  143) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from 5c1bd648 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  144) HDNode
+       derive
+         m/0'/1/2' from bef5a2f9 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i' === 'ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze'
+      + expected - actual
+
+      -Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i
+      +ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  145) HDNode
+       derive
+         m/0'/1/2'/2 from bef5a2f9 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF' === 'ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm'
+      + expected - actual
+
+      -Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF
+      +ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  146) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from bef5a2f9 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  147) HDNode
+       derive
+         m/0'/1/2'/2 from ee7ab90c by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF' === 'ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm'
+      + expected - actual
+
+      -Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF
+      +ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  148) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from ee7ab90c by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  149) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from d880d7d8 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  150) HDNode
+       derive
+         m/0' from 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34124HYfczHonk4gvhLPcWHjj516X2iCMn36A52jFm9nrS5GqDFGBFJeiwVsnMEA2Zw6h3b87nPrVF5FAnrmUCbiVQzRTcjeNnXC3Us3pkaGk' === 'ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp'
+      + expected - actual
+
+      -Ua34124HYfczHonk4gvhLPcWHjj516X2iCMn36A52jFm9nrS5GqDFGBFJeiwVsnMEA2Zw6h3b87nPrVF5FAnrmUCbiVQzRTcjeNnXC3Us3pkaGk
+      +ppub3XcfXjsJjENkc88SxyTBWVXvnLYKBsk5kigmHkNiNNJcnNjKzEvEYB7zAe3FCJR13tZ1srgmnzNEnNuVr7dHn5TGw38jiEbxAE8QRLjm6Jp
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  151) HDNode
+       derive
+         m/0'/1 from 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt' === 'ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR'
+      + expected - actual
+
+      -Ua3414EQkTAsgWfou8y94eWNtUcj4UW8iE64yQpud12a6ReeJpLLy4bZGDdAuxEve6jutpK6NYZtWSyifYucL6e6HNKMHdJUDHP49vaG9z2biJt
+      +ppub3ZnnjXRC7wFpSaAthEM47ERaqiXRBuUNh3Mbt29XK16q1vETi3LYVk2DaiVpcF8M1cB4fH8suariNgeKKSoBTjHDEEybBscDnxfBiHPuEoR
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  152) HDNode
+       derive
+         m/0'/1/2' from 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i' === 'ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze'
+      + expected - actual
+
+      -Ua3416qgnyzjPPXDmJmEKEukFUesHdNeymg4Jx4asLKjGJ25ifXTmpRzAfB6TyRm5yBEFLQpyvYVtPYh7t3u3CBdLpUBsXGcJESjscVQFCCgr8i
+      +ppub3cQ4n4F3pp7EJjxywpkRUETj4sPwTT4N2abH8MSgUsUGRmRaWoAyQBa98jgf47ZfN8GoGf7VHXRgq1nc2YLiXBS3p8wjGpfuWeaKoUMoXze
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  153) HDNode
+       derive
+         m/0'/1/2'/2 from 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF' === 'ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm'
+      + expected - actual
+
+      -Ua341955dR7gZsCCqnEx1W7q8ypBNSfPcMzFkRwt8HrCajah5m9pqb8MNEe29JR9VmKxieY17w2Sw8SogJPu8Vcq4QwSnJpo8RLZtJQFPpy6gEF
+      +ppub3edTcVN11HnDPDShe5xWMjd39ggg63NZU4UaPJy9oK2sns3waZsLbm34p4g3TuiPqSPyQfbSLGKoPS8c7qmvEmuJivVv71ZjXLVAx7f38Nm
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  154) HDNode
+       derive
+         m/0'/1/2'/2/1000000000 from 3442193e:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV' === 'ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC'
+      + expected - actual
+
+      -Ua341Anr76ivgzaQN82Q83gZSgpBAgEhRroHYgLSNaELnoyBntZDN1P1dLo5n8L6M2QgCLpYdGxFUL9QGinvEM7fug6ZerEsvtvChG2Ae4z33VV
+      +ppub3gME6AyF8RAQuZE9kdXEfSd2wvFyuYBbGJs8dbMJ1PRNVzTL6z7zrsC8StazKAo7K8gWv1XEsU2PyrXdDhGm634RbTuzuV9NLJ76CGYSteC
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  155) HDNode
+       derive
+         m/0 from bd16bee5 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34134cpg1UgZVqRxtcNaC2vhkFHRrMiicsbEGGXPdvEPdygx1CaSmAmF7NeBGWzBVS3m8SVnEGTNmNyoMZv5MQ1LguvmbVZB7cT7hhGYGZ8Sq' === 'ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr'
+      + expected - actual
+
+      -Ua34134cpg1UgZVqRxtcNaC2vhkFHRrMiicsbEGGXPdvEPdygx1CaSmAmF7NeBGWzBVS3m8SVnEGTNmNyoMZv5MQ1LguvmbVZB7cT7hhGYGZ8Sq
+      +ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  156) HDNode
+       derive
+         m/0/2147483647' from bd16bee5 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L' === 'ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc'
+      + expected - actual
+
+      -Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L
+      +ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  157) HDNode
+       derive
+         m/0/2147483647'/1 from bd16bee5 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy' === 'ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs'
+      + expected - actual
+
+      -Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy
+      +ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  158) HDNode
+       derive
+         m/0/2147483647'/1/2147483646' from bd16bee5 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh' === 'ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9'
+      + expected - actual
+
+      -Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh
+      +ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  159) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from bd16bee5 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  160) HDNode
+       derive
+         m/0/2147483647' from 5a61ff8e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L' === 'ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc'
+      + expected - actual
+
+      -Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L
+      +ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  161) HDNode
+       derive
+         m/0/2147483647'/1 from 5a61ff8e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy' === 'ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs'
+      + expected - actual
+
+      -Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy
+      +ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  162) HDNode
+       derive
+         m/0/2147483647'/1/2147483646' from 5a61ff8e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh' === 'ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9'
+      + expected - actual
+
+      -Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh
+      +ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  163) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from 5a61ff8e by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  164) HDNode
+       derive
+         m/0/2147483647'/1 from d8ab4937 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy' === 'ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs'
+      + expected - actual
+
+      -Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy
+      +ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  165) HDNode
+       derive
+         m/0/2147483647'/1/2147483646' from d8ab4937 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh' === 'ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9'
+      + expected - actual
+
+      -Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh
+      +ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  166) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from d8ab4937 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  167) HDNode
+       derive
+         m/0/2147483647'/1/2147483646' from 78412e3a by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh' === 'ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9'
+      + expected - actual
+
+      -Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh
+      +ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  168) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from 78412e3a by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  169) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from 31a507b8 by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:292:13)
+
+  170) HDNode
+       derive
+         m/0 from bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34134cpg1UgZVqRxtcNaC2vhkFHRrMiicsbEGGXPdvEPdygx1CaSmAmF7NeBGWzBVS3m8SVnEGTNmNyoMZv5MQ1LguvmbVZB7cT7hhGYGZ8Sq' === 'ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr'
+      + expected - actual
+
+      -Ua34134cpg1UgZVqRxtcNaC2vhkFHRrMiicsbEGGXPdvEPdygx1CaSmAmF7NeBGWzBVS3m8SVnEGTNmNyoMZv5MQ1LguvmbVZB7cT7hhGYGZ8Sq
+      +ppub3YczokFo7z5qyQ6N1A2i9TZ74fseCQ1BJrnxnQksSy6AQ3uKKRW9zmWRJwXQxKssAYzQnWoFrWeNgw6GuRWVBhemsPGcXmLn69ncpjMovLr
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  171) HDNode
+       derive
+         m/0/2147483647' from bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L' === 'ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc'
+      + expected - actual
+
+      -Ua3414Dg5H314Tfwbq6no2BgQ3RogB5GGCnZgPLoSnYgt8QN9FEfCLBUyJtyFZWdjv6XqH3z9d5skbByeUDugyqWjV9YTrDYuuNdKVyJ7MubY9L
+      +ppub3Zn44MHKVtFx9GJYRc2McoEfTR6YjtAsQ1sVhofe6hrYrM8mwJvUCqJ1vKmXi4Uxx4uxSMes9j4yMbxcgKzbur7QQTtftVbnxY4DfYhLwHc
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  172) HDNode
+       derive
+         m/0/2147483647'/1 from bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy' === 'ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs'
+      + expected - actual
+
+      -Ua34172eVJ1wE6y8hSmvrgLFMzN31hwmNPhpzpqfHrD2C1kop56pVqiBsDHM6MhmXnnpRTWXzGB7PiVojGUvbtGTzpcT48RQ8SoqFGeFMoGxBQy
+      +ppub3cb2UNGFfXZ9EsygVGAvakAtnwy3r568iTNMYsKyQbCzXAzwEpTB6jgPm7xfVwBFYFNWGzk6nrNoSQDdbERZBBaJzk6X732ztJjAv1H3SRs
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  173) HDNode
+       derive
+         m/0/2147483647'/1/2147483646' from bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh' === 'ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9'
+      + expected - actual
+
+      -Ua3418CgQFxHqVvqzQ1XbA9njW4DvSR8RNLL2XZYpZuS2n24GRRkbWeCPjeSj1qGjAKGNuAAnmEpSKpfNueKHmNyiBJuL2jtgjuF7ViptiJFhbh
+      +ppub3dm4PLCcGvWrXqDHDjzTxFs5hgSQu3idkA6F5b2PFMUEyXKsLVPBdG3VPn6AhJhhVh295VooqThf63P2H7Y4tYGmGeR1fL8QkXokSzPjfj9
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  174) HDNode
+       derive
+         m/0/2147483647'/1/2147483646'/2 from bd16bee5:
+
+      AssertionError [ERR_ASSERTION]: 'Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4' === 'ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW'
+      + expected - actual
+
+      -Ua3419ZiMhAoMgF5jfCRKEHUiFSCKVxEfhFQghBSEMFvfZseLcmKm9ZxaJbSoQuYrjfxtxNQ4gkEL2qesLhp7s4t2SAUyCZyd7Bynnv1ZM7sgy4
+      +ppub3f86LmR7o6q6H6QAwp89w1F46jyX9NdiQKi8VNNst9Kq3ifSW8JwopzVUBASpt4Q1kENMRKDjAieaUSX7DDyCo8LupF6bhR9Rpzw7eipFyW
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:312:11)
+
+  175) HDNode
+       derive
+         m/44'/0'/0'/0/0' from 1a87677b by path:
+
+      AssertionError [ERR_ASSERTION]: 'Ua341APhNMVc2LkDtcmTtkoE2MKUwUSwbPoYzurZ4guFfa3mFrRa1oJ17MrBAZAgvG9pyZUAVshjvbutECAs9P7iMfBGiizeeM12JbgxEfc1ZYV' === 'ppub3fx5MRjvTmLES3yDXLduF78LiiUE55BriYPFKi2Ct9VwxxKgkn2zLtFDqKRatQYG6ML8ncGjKjnswKua8jGoY298fLfmcwEBwdmsnxGWF2P'
+      + expected - actual
+
+      -Ua341APhNMVc2LkDtcmTtkoE2MKUwUSwbPoYzurZ4guFfa3mFrRa1oJ17MrBAZAgvG9pyZUAVshjvbutECAs9P7iMfBGiizeeM12JbgxEfc1ZYV
+      +ppub3fx5MRjvTmLES3yDXLduF78LiiUE55BriYPFKi2Ct9VwxxKgkn2zLtFDqKRatQYG6ML8ncGjKjnswKua8jGoY298fLfmcwEBwdmsnxGWF2P
+      
+      at verifyVector (test/hdnode/index.js:254:16)
+      at Context.<anonymous> (test/hdnode/index.js:279:11)
+
+  176) HDNode
+       derive
+         works for Private -> public (neutered):
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:321:27)
+
+  177) HDNode
+       derive
+         works for Private -> public (neutered, hardened):
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:331:27)
+
+  178) HDNode
+       derive
+         works for Public -> public:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:341:27)
+
+  179) HDNode
+       derive
+         throws on Public -> public (hardened):
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:351:27)
+
+  180) HDNode
+       derive
+         throws on wrong types:
+     Error: Unknown network version
+      at Function.HDNode.fromBase58 (lib/hdnode.js:89:25)
+      at Context.<anonymous> (test/hdnode/index.js:360:27)
+
+  181) zeon-js (basic)
+       can generate a random zeon address:
+
+      AssertionError [ERR_ASSERTION]: 'ZK4jdRHaCj3Adxdk66KWAnrqVTkujto8Wf' === 'PFcf1hqNTDTGC89aUbzY3f4AkrKKupteyH'
+      + expected - actual
+
+      -ZK4jdRHaCj3Adxdk66KWAnrqVTkujto8Wf
+      +PFcf1hqNTDTGC89aUbzY3f4AkrKKupteyH
+      
+      at Context.<anonymous> (test/integration/basic.js:16:12)
+
+  182) zeon-js (basic)
+       can generate an address from a SHA256 hash:
+
+      AssertionError [ERR_ASSERTION]: 'ZCLZ1xho4yL1dMHsZRmav5GCnPBPbCZeHY' === 'P8tUQFFbKTk7BWohwwScnwTY3mjorGbBrv'
+      + expected - actual
+
+      -ZCLZ1xho4yL1dMHsZRmav5GCnPBPbCZeHY
+      +P8tUQFFbKTk7BWohwwScnwTY3mjorGbBrv
+      
+      at Context.<anonymous> (test/integration/basic.js:26:12)
+
+  183) zeon-js (basic)
+       can import an address via WIF:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/integration/basic.js:44:34)
+
+  184) zeon-js (BIP32)
+       can create a BIP32 wallet external address:
+
+      AssertionError [ERR_ASSERTION]: 'ZVo1ZeQfjZokNE3v4SSpvkyqs31ZFKxuk5' == 'PSLvwvxTz4DqvPZkSx7rodBB8RZyUNqQUY'
+      + expected - actual
+
+      -ZVo1ZeQfjZokNE3v4SSpvkyqs31ZFKxuk5
+      +PSLvwvxTz4DqvPZkSx7rodBB8RZyUNqQUY
+      
+      at Context.<anonymous> (test/integration/bip32.js:23:12)
+
+  185) zeon-js (BIP32)
+       can create a BIP44, zeon, account 0, external address:
+
+      AssertionError [ERR_ASSERTION]: 'ZRrujDKQSAwan66vojoHN7PdThuzwf4Mc6' == 'PNQq7VsCgfMgLFcmCFUKEyaxj6UR6DxbVc'
+      + expected - actual
+
+      -ZRrujDKQSAwan66vojoHN7PdThuzwf4Mc6
+      +PNQq7VsCgfMgLFcmCFUKEyaxj6UR6DxbVc
+      
+      at Context.<anonymous> (test/integration/bip32.js:40:12)
+
+  186) vote.js
+       #createVote
+         should create vote from wif:
+     Error: Invalid network version
+      at Function.ECPair.fromWIF (lib/ecpair.js:99:40)
+      at Context.<anonymous> (test/vote/index.js:52:38)
+
+
+

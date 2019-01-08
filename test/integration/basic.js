@@ -13,7 +13,7 @@ describe('zeon-js (basic)', function () {
     var keyPair = qzeonjs.ECPair.makeRandom({ rng: rng })
     var address = keyPair.getAddress()
 
-    assert.strictEqual(address, 'PFcf1hqNTDTGC89aUbzY3f4AkrKKupteyH')
+    assert.strictEqual(address, 'ZK4jdRHaCj3Adxdk66KWAnrqVTkujto8Wf')
   })
 
   it('can generate an address from a SHA256 hash', function () {
@@ -23,7 +23,7 @@ describe('zeon-js (basic)', function () {
     var keyPair = new qzeonjs.ECPair(d)
     var address = keyPair.getAddress()
 
-    assert.strictEqual(address, 'P8tUQFFbKTk7BWohwwScnwTY3mjorGbBrv')
+    assert.strictEqual(address, 'ZCLZ1xho4yL1dMHsZRmav5GCnPBPbCZeHY')
   })
 
   it('can generate a random keypair for alternative networks', function () {
@@ -41,10 +41,10 @@ describe('zeon-js (basic)', function () {
   })
 
   it('can import an address via WIF', function () {
-    var keyPair = qzeonjs.ECPair.fromWIF('S9aCCSFvm8kNeyFb1t6pLb5oJs9tv96ag6uA8Du6UM7zsmsNHQiz')
+    var keyPair = qzeonjs.ECPair.fromWIF('8q8qpjJiKSSEZtDbdyQEL5oxe4SYkgyQVPJYWWCr9JudRAL8Q3q')
     var address = keyPair.getAddress()
-
-    assert.strictEqual(address, 'PVB1zsuWTTWEBGSSGsaQ8eDjTVy475WJq8')
+    console.log("address : "  + address) 
+    assert.strictEqual(address, 'ZNxSmGMQo5MXucGLX4gT59pVyHd4XbSiNZ')
   })
 
 })

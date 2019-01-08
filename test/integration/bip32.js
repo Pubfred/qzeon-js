@@ -20,8 +20,8 @@ describe('zeon-js (BIP32)', function () {
       .derive(0)
       .derive(0)
 
-    assert.equal(child1.getAddress(), 'PSLvwvxTz4DqvPZkSx7rodBB8RZyUNqQUY')
-    assert.equal(child2.getAddress(), 'PSLvwvxTz4DqvPZkSx7rodBB8RZyUNqQUY')
+    assert.equal(child1.getAddress(), 'ZVo1ZeQfjZokNE3v4SSpvkyqs31ZFKxuk5')
+    assert.equal(child2.getAddress(), 'ZVo1ZeQfjZokNE3v4SSpvkyqs31ZFKxuk5')
   })
 
   it('can create a BIP44, zeon, account 0, external address', function () {
@@ -37,8 +37,8 @@ describe('zeon-js (BIP32)', function () {
       .derive(0)
       .derive(0)
 
-    assert.equal(child1.getAddress(), 'PNQq7VsCgfMgLFcmCFUKEyaxj6UR6DxbVc')
-    assert.equal(child2.getAddress(), 'PNQq7VsCgfMgLFcmCFUKEyaxj6UR6DxbVc')
+    assert.equal(child1.getAddress(), 'ZRrujDKQSAwan66vojoHN7PdThuzwf4Mc6')
+    assert.equal(child2.getAddress(), 'ZRrujDKQSAwan66vojoHN7PdThuzwf4Mc6')
   })
 
   it('can recover a BIP32 parent private key from the parent public key, and a derived, non-hardened child private key', function () {

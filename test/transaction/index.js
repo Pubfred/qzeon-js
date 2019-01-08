@@ -23,7 +23,7 @@ describe("transaction.js", function () {
     });
 
     it("should create transaction without second signature", function () {
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, null, "secret");
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, null, "secret");
       (trs).should.be.ok;
     });
 
@@ -31,18 +31,18 @@ describe("transaction.js", function () {
       var secretKey = qzeonjs.ECPair.fromSeed("secret");
       secretKey.publicKey = secretKey.getPublicKeyBuffer().toString("hex");
 
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, null, secretKey);
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, null, secretKey);
       (trs).should.be.ok;
     });
 
     it("should create transaction with vendorField", function () {
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, "this is a test vendorfield", "secret");
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, "this is a test vendorfield", "secret");
       (trs).should.be.ok;
     });
 
     it("should create transaction with fee override", function () {
       const feeOverride = 1000000
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, null, "secret", undefined, undefined, feeOverride);
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, null, "secret", undefined, undefined, feeOverride);
       (trs).should.be.ok;
       (trs.fee).should.equal(feeOverride)
     });
@@ -50,7 +50,7 @@ describe("transaction.js", function () {
     it("should fail to create transaction with invalid fee override", function (done) {
       const feeOverride = '1000000'
       try {
-        trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, null, "secret", undefined, undefined, feeOverride);
+        trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, null, "secret", undefined, undefined, feeOverride);
         should.fail()
       } catch (error) {
         done()
@@ -63,7 +63,7 @@ describe("transaction.js", function () {
         vf = vf + vf;
       }
       vf = vf + "z";
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, vf, "secret");
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, vf, "secret");
       return (trs === null).should.equal(true);
 
     });
@@ -73,7 +73,7 @@ describe("transaction.js", function () {
       for (var i = 0; i < 6; i++) {
         vf = vf + vf;
       }
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, vf, "secret");
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, vf, "secret");
       (trs).should.be.ok;
     });
 
@@ -106,8 +106,8 @@ describe("transaction.js", function () {
         })
       });
 
-      it("should have recipientId as string and to be equal PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", function () {
-        (trs.recipientId).should.be.type("string").and.equal("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2");
+      it("should have recipientId as string and to be equal ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", function () {
+        (trs.recipientId).should.be.type("string").and.equal("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2");
       });
 
       it("should have amount as number and eqaul to 1000", function () {
@@ -186,7 +186,7 @@ describe("transaction.js", function () {
       }
 
       // The transaction to replay
-      var old_transaction = qzeonjs.transaction.createTransaction('PVB1zsuWTTWEBGSSGsaQ8eDjTVy475WJq8', 1, null, 'randomstring');
+      var old_transaction = qzeonjs.transaction.createTransaction('ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2', 1, null, 'randomstring');
 
       // Decode signature
       var decode = bip66.decode(Buffer(old_transaction.signature, "hex"));
@@ -247,7 +247,7 @@ describe("transaction.js", function () {
     });
 
     it("should create transaction without second signature", function () {
-      trs = createTransaction("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", 1000, null, "secret", secondSecret);
+      trs = createTransaction("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", 1000, null, "secret", secondSecret);
       (trs).should.be.ok;
     });
 
@@ -280,8 +280,8 @@ describe("transaction.js", function () {
         })
       });
 
-      it("should have recipientId as string and to be equal PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2", function () {
-        (trs.recipientId).should.be.type("string").and.equal("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2");
+      it("should have recipientId as string and to be equal ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2", function () {
+        (trs.recipientId).should.be.type("string").and.equal("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2");
       });
 
       it("should have amount as number and eqaul to 1000", function () {
