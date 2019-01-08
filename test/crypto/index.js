@@ -294,14 +294,14 @@ describe("crypto.js", function () {
     });
 
     it("should generate address by publicKey - second test - DevNET", function () {
-      crypto.setNetworkVersion(0x4B);
+      crypto.setNetworkVersion(0x80);
       var keys = crypto.getKeys("secret second test to be sure it works correctly");
       var address = getAddress(keys.publicKey);
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy");
-      crypto.setNetworkVersion(0x37);
+      (address).should.be.equal("XL2CkSEks76phsLQD2NtMkLRworLYkqxdR");
+      crypto.setNetworkVersion(0x50);
     });
 
     it("should generate the same address as ECPair.getAddress()", function () {
@@ -315,7 +315,7 @@ describe("crypto.js", function () {
     });
 
     it("should generate the same address as ECPair.getAddress() - DevNET", function () {
-      crypto.setNetworkVersion(0x4B);
+      crypto.setNetworkVersion(0x80);
       var keys = crypto.getKeys("secret second test to be sure it works correctly");
       var address = getAddress(keys.publicKey);
 
@@ -323,7 +323,7 @@ describe("crypto.js", function () {
       var keyPairD = new ECPair(null, Q, { compressed: true, network: qzeonjs.networks.devnet });
 
       (address).should.be.equal(keyPairD.getAddress());
-      crypto.setNetworkVersion(0x37);
+      crypto.setNetworkVersion(0x50);
     });
   });
 
@@ -355,12 +355,12 @@ describe("crypto.js", function () {
 describe("different networks", function () {
 
   it("validate address on devnet should be ok", function () {
-    qzeonjs.crypto.setNetworkVersion(0x4B);
+    qzeonjs.crypto.setNetworkVersion(0x80);
     qzeonjs.crypto.getNetworkVersion().should.equal(0x4B);
     var validate = qzeonjs.crypto.validateAddress("XE5npfYGHcnwsHZXFagNAJN6FFyAM542Bh");
     (validate).should.equal(true);
-    qzeonjs.crypto.setNetworkVersion(0x37);
-    qzeonjs.crypto.getNetworkVersion().should.equal(0x37);
+    qzeonjs.crypto.setNetworkVersion(0x50);
+    qzeonjs.crypto.getNetworkVersion().should.equal(0x50);
   });
 });
 
