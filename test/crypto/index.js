@@ -119,7 +119,7 @@ describe("crypto.js", function () {
       (getId).should.be.type("function");
     });
 
-    it("should return string id and be equal to fadfd463561ffd13637fcc689e2285b9b2379de7c2d865bbeb6aa9945fbb219e", function () {
+    it("should return string id and be equal to 47188d5669e12fd6ac6dac661e9a6b884f58793788d8fbb3e695aa9a73a87bee", function () {
       var transaction = {
         type: 0,
         amount: 1000,
@@ -132,7 +132,7 @@ describe("crypto.js", function () {
       };
 
       var id = getId(transaction);
-      (id).should.be.type("string").and.equal("fadfd463561ffd13637fcc689e2285b9b2379de7c2d865bbeb6aa9945fbb219e");
+      (id).should.be.type("string").and.equal("47188d5669e12fd6ac6dac661e9a6b884f58793788d8fbb3e695aa9a73a87bee");
     });
   });
 
