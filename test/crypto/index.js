@@ -43,10 +43,10 @@ describe("crypto.js", function () {
         type: 0,
         amount: 1000,
         fee: 2000,
-        recipientId: "PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2",
+        recipientId: "ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2",
         timestamp: 141738,
         asset: {},
-        senderPublicKey: "5d036a858ce89f844491762eb89e2bfbd50a4a0a0da658e4b2628b25b117ae09",
+        senderPublicKey: "0245678A36D836DABC25DD6BBF1B1FACA55DE1BCCED1BFA20E94E5C6DC18D6435B",
         signature: "618a54975212ead93df8c881655c625544bce8ed7ccdfe6f08a42eecfb1adebd051307be5014bb051617baf7815d50f62129e70918190361e5d4dd4796541b0a",
         id: "13987348420913138422"
       };
@@ -62,10 +62,10 @@ describe("crypto.js", function () {
         type: 0,
         amount: 1000,
         fee: 2000,
-        recipientId: "PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2",
+        recipientId: "ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2",
         timestamp: 141738,
         asset: {},
-        senderPublicKey: "5d036a858ce89f844491762eb89e2bfbd50a4a0a0da658e4b2628b25b117ae09",
+        senderPublicKey: "0245678A36D836DABC25DD6BBF1B1FACA55DE1BCCED1BFA20E94E5C6DC18D6435B",
         signature: "618a54975212ead93df8c881655c625544bce8ed7ccdfe6f08a42eecfb1adebd051307be5014bb051617baf7815d50f62129e70918190361e5d4dd4796541b0a",
         signSignature: "618a54975212ead93df8c881655c625544bce8ed7ccdfe6f08a42eecfb1adebd051307be5014bb051617baf7815d50f62129e70918190361e5d4dd4796541b0a",
         id: "13987348420913138422"
@@ -94,10 +94,10 @@ describe("crypto.js", function () {
         type: 0,
         amount: 1000,
         fee: 2000,
-        recipientId: "PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2",
+        recipientId: "ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2",
         timestamp: 141738,
         asset: {},
-        senderPublicKey: "5d036a858ce89f844491762eb89e2bfbd50a4a0a0da658e4b2628b25b117ae09",
+        senderPublicKey: "0245678A36D836DABC25DD6BBF1B1FACA55DE1BCCED1BFA20E94E5C6DC18D6435B",
         signature: "618a54975212ead93df8c881655c625544bce8ed7ccdfe6f08a42eecfb1adebd051307be5014bb051617baf7815d50f62129e70918190361e5d4dd4796541b0a",
       };
 
@@ -124,10 +124,10 @@ describe("crypto.js", function () {
         type: 0,
         amount: 1000,
         fee: 2000,
-        recipientId: "PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2",
+        recipientId: "ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2",
         timestamp: 141738,
         asset: {},
-        senderPublicKey: "5d036a858ce89f844491762eb89e2bfbd50a4a0a0da658e4b2628b25b117ae09",
+        senderPublicKey: "0245678A36D836DABC25DD6BBF1B1FACA55DE1BCCED1BFA20E94E5C6DC18D6435B",
         signature: "618a54975212ead93df8c881655c625544bce8ed7ccdfe6f08a42eecfb1adebd051307be5014bb051617baf7815d50f62129e70918190361e5d4dd4796541b0a"
       };
 
@@ -270,7 +270,7 @@ describe("crypto.js", function () {
 
       (address).should.be.ok;
       (address).should.be.type("string");
-      (address).should.be.equal("PBKj8VaW61XRWcmnmC1zTnvMfApJ9RyMu2");
+      (address).should.be.equal("ZYMZuYJKKWsmWQzuLzAwCqJaVsu7aQ4ss2");
     });
 
     it("should generate address by publicKey - DevNET -", function () {
