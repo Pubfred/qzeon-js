@@ -281,7 +281,7 @@ describe("crypto.js", function () {
       (address).should.be.ok;
       (address).should.be.type("string");
       (address).should.be.equal("tYzm1RLXvBMPDFx7YpLFrwnnbzdA4Apdyf");
-      crypto.setNetworkVersion(0x37);
+      crypto.setNetworkVersion(0x50);
     });
 
     it("should generate address by publicKey - second test", function () {
