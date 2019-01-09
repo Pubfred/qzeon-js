@@ -112,7 +112,7 @@ Returning:
 You need to obtain the nethash in order to be sure you are broadcasting to the right network (testnet, mainnet or others). The nethash is simply the payload hash from the genesisBlock. If no nethash or wrong nethash is provided in the headers, the request will be rejected returning the expected nethash.
 
 ```json
-{ "success": false, "message": "Request is made on the wrong network", "expected":"e2f8f69ec6ab4b12550a314bd867c46e64e429961bb427514a3a534c602ff467", "received":"wrong-nethash" }
+{ "success": false, "message": "Request is made on the wrong network", "expected":"00000c9c83e5970601b5af203855c305a7e426deb667e6a8b3d1e1f66b52d220", "received":"wrong-nethash" }
 ```
 
 The nethash for a given network can be obtained at the following API endpoint:
@@ -128,7 +128,7 @@ On the client using [jQuery](https://jquery.com/):
 ```js
 var nethash;
 $.ajax({
-  url: "https://api.zeon.io/peer/transactions/",
+  url: "https://qzeonapi.zeonhexalgo.fun/peer/transactions/",
   data: JSON.stringify({}),
   dataType: "json",
   method: "POST",
@@ -150,7 +150,7 @@ From a server using [Request](https://github.com/request/request):
 ```js
 var nethash;
 request({
-  url: "https://api.zeon.io/peer/transactions",
+  url: "https://qzeonapi.zeonhexalgo.fun/peer/transactions",
   json: { },
   method: "POST",
   headers: {
@@ -192,7 +192,7 @@ var success = function(data) {
 };
 
 $.ajax({
-  url: "https://api.zeon.io/peer/transactions",
+  url: "https://qzeonapi.zeonhexalgo.fun/peer/transactions",
   data: JSON.stringify({ transactions: [transaction] }),
   dataType: "json",
   method: "POST",
@@ -220,7 +220,7 @@ var callback = function(error, response, body) {
 };
 
 request({
-  url: "https://api.zeon.io/peer/transactions",
+  url: "https://qzeonapi.zeonhexalgo.fun/peer/transactions",
   json: { transactions: [transaction] },
   method: "POST",
   headers: {
