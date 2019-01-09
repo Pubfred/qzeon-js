@@ -50,7 +50,7 @@ Returning:
 
 ```js
 {
-  publicKey: "02e012f0a7cac12a74bdc17d844cbc9f637177b470019c32a53cef94c7a56e2ea9",
+  publicKey: "02F7A1379A1B50A395FA7CCD530F06F8F6B96E1359237E029950F34FAE57A37ABD",
   privateKey: ""
 }
 ```
@@ -72,13 +72,13 @@ Returning:
 To generate a unique ZEON address from a given public key:
 
 ```js
-var address = qzeonjs.crypto.getAddress("5d036a858ce89f844491762eb89e2bfbd50a4a0a0da658e4b2628b25b117ae09");
+var address = qzeonjs.crypto.getAddress("02F7A1379A1B50A395FA7CCD530F06F8F6B96E1359237E029950F34FAE57A37ABD");
 ```
 
 Returning:
 
 ```
-AGihocTkwDygiFvmg6aG8jThYTic47GzU9
+ZVCmN9MfpBqqWFy2HBUr4TExWiEwwz9huM
 ```
 
 ### Creating a transaction
@@ -87,7 +87,7 @@ To create a signed transaction object, which can then be broadcasted onto the ne
 
 ```js
 var amount      = 1000 * Math.pow(10, 8); // 100000000000
-var transaction = qzeonjs.transaction.createTransaction("AGihocTkwDygiFvmg6aG8jThYTic47GzU9", amount, null, "passphrase", "secondPassphrase");
+var transaction = qzeonjs.transaction.createTransaction("ZVCmN9MfpBqqWFy2HBUr4TExWiEwwz9huM", amount, null, "passphrase", "secondPassphrase");
 ```
 
 Returning:
@@ -99,8 +99,8 @@ Returning:
   asset: {}, // Transaction asset, dependent on tx type.
   fee: 100000000, // 0.1 ZEON expressed as an integer value.
   id: "500224999259823996", // Transaction ID.
-  recipientId: "AGihocTkwDygiFvmg6aG8jThYTic47GzU9", // Recipient ID.
-  senderPublicKey: "56e106a1d4a53dbe22cac52fefd8fc4123cfb4ee482f8f25a4fc72eb459b38a5", // Sender's public key.
+  recipientId: "ZVCmN9MfpBqqWFy2HBUr4TExWiEwwz9huM", // Recipient ID.
+  senderPublicKey: "02F7A1379A1B50A395FA7CCD530F06F8F6B96E1359237E029950F34FAE57A37ABD", // Sender's public key.
   signSignature: "03fdd33bed30270b97e77ada44764cc8628f6ad3bbd84718571695262a5a18baa37bd76a62dd25bc21beacd61eaf2c63af0cf34edb0d191d225f4974cd3aa509", // Sender's second passphrase signature.
   signature: "9419ca3cf11ed2e3fa4c63bc9a4dc18b5001648e74522bc0f22bda46a188e462da4785e5c71a43cfc0486af08d447b9340ba8b93258c4c7f50798060fff2d709", // Transaction signature.
   timestamp: 27953413 // Based on UTC time of genesis since epoch.
@@ -275,6 +275,7 @@ var transaction = qzeonjs.vote.createVote("secret", ["+5819957819195001929918192
 - Giovanni Silvestri <gsit80@gmail.com>
 - FX Thoorens <fx@ark.io>
 - Guillaume Verbal <doweig@ark.io>
+- Pubfred <zeonmymail@gmail.com>
 
 ## License
 
