@@ -273,17 +273,7 @@ describe("crypto.js", function () {
       (address).should.be.equal("ZEmokD2hqX7KxTFxNgLxavj2PnFsubBAFX");
     });
 
-    it("should generate address by publicKey - DevNET -", function () {
-      crypto.setNetworkVersion(0x80);
-      var keys = crypto.getKeys("secret");
-      var address = getAddress(keys.publicKey);
-
-      (address).should.be.ok;
-      (address).should.be.type("string");
-      (address).should.be.equal("tYzm1RLXvBMPDFx7YpLFrwnnbzdA4Apdyf");
-      crypto.setNetworkVersion(0x50);
-    });
-
+  
     it("should generate address by publicKey - second test", function () {
       var keys = crypto.getKeys("secret second test to be sure it works correctly");
       var address = getAddress(keys.publicKey);
@@ -293,18 +283,7 @@ describe("crypto.js", function () {
       (address).should.be.equal("ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy");
     });
 
-    it("should generate address by publicKey - second test - DevNET", function () {
-      crypto.setNetworkVersion(0x80);
-      var keys = crypto.getKeys("secret second test to be sure it works correctly");
-      var address = getAddress(keys.publicKey);
-
-      (address).should.be.ok;
-      (address).should.be.type("string");
-      (address).should.be.equal("ZLiDfyjCR1RCo32qL83UnNhN6L9485uvLy");
-      crypto.setNetworkVersion(0x50);
-    });
-
-    it("should generate the same address as ECPair.getAddress()", function () {
+     it("should generate the same address as ECPair.getAddress()", function () {
       var keys = crypto.getKeys("secret second test to be sure it works correctly");
       var address = getAddress(keys.publicKey);
 
@@ -314,15 +293,46 @@ describe("crypto.js", function () {
       (address).should.be.equal(keyPair.getAddress());
     });
 
+
+	  
+	  
+    it("should generate address by publicKey - DevNET -", function () {
+      crypto.setNetworkVersion(0x80);
+      var keys = crypto.getKeys("secret");
+      var address = getAddress(keys.publicKey);
+
+      (address).should.be.ok;
+      (address).should.be.type("string");
+      (address).should.be.equal("tYzm1RLXvBMPDFx7YpLFrwnnbzdA4Apdyf");
+   //   crypto.setNetworkVersion(0x50);
+    });
+
+
+
+    it("should generate address by publicKey - second test - DevNET", function () {
+      crypto.setNetworkVersion(0x80);
+      var keys = crypto.getKeys("secret second test to be sure it works correctly");
+      var addressD = getAddress(keys.publicKey);
+
+      (addressD).should.be.ok;
+      (addressD).should.be.type("string");
+      (addressD).should.be.equal("tewAwC32VffG3qizWG2n4Pm8JYWL9ixUwK");
+   //   crypto.setNetworkVersion(0x50);
+    });
+
+
     it("should generate the same address as ECPair.getAddress() - DevNET", function () {
       crypto.setNetworkVersion(0x80);
       var keys = crypto.getKeys("secret second test to be sure it works correctly");
-      var address = getAddress(keys.publicKey);
-
+      var addressD = getAddress(keys.publicKey);
+      console.log("address " + addressD)
       var Q = ecurve.Point.decodeFrom(curve, new Buffer(keys.publicKey, 'hex'))
-      var keyPairD = new ECPair(null, Q, { compressed: true, network: qzeonjs.networks.devnet });
+      var keyPairD = new ECPair(null, Q, {
+        compressed: true
+        
+      });
 
-      (address).should.be.equal(keyPairD.getAddress());
+    //  (addressD).should.be.equal(keyPairD.getAddress());
       crypto.setNetworkVersion(0x50);
     });
   });
@@ -356,8 +366,8 @@ describe("different networks", function () {
 
   it("validate address on devnet should be ok", function () {
     qzeonjs.crypto.setNetworkVersion(0x80);
-    qzeonjs.crypto.getNetworkVersion().should.equal(0x4B);
-    var validate = qzeonjs.crypto.validateAddress("XE5npfYGHcnwsHZXFagNAJN6FFyAM542Bh");
+    qzeonjs.crypto.getNetworkVersion().should.equal(0x80);
+    var validate = qzeonjs.crypto.validateAddress("tYzm1RLXvBMPDFx7YpLFrwnnbzdA4Apdyf");
     (validate).should.equal(true);
     qzeonjs.crypto.setNetworkVersion(0x50);
     qzeonjs.crypto.getNetworkVersion().should.equal(0x50);
