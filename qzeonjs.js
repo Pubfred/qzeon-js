@@ -421,13 +421,13 @@ ECPair.fromWIF = function (string, network) {
     network = network.filter(function (network) {
       return version === network.wif
     }).pop()
-
+    console.log("version" + version)
     if (!network) throw new Error('Unknown network version')
 
   // network
   } else {
     network = network || NETWORKS.zeon
-
+    console.log("version" + version)
     if (version !== network.wif) throw new Error('Invalid network version')
   }
 
@@ -790,7 +790,7 @@ HDNode.fromBase58 = function (string, networks) {
              version === network.bip32.public
     }).pop()
 	  
-    console.log("version" +  version) 
+    console.log("version: " +  version) 
     if (!network) throw new Error('Unknown network version')
 
   // otherwise, assume a network object (or default to zeon)
@@ -1102,7 +1102,7 @@ module.exports = {
     symbol: 'ZEON',
     pubKeyHash: 0x50, // Addresses will begin with 'Z'
     explorer: 'https://explorer.zeonhexalgo.fun',
-    wif: 0x9e, // Network prefix for wif generation
+    wif: 0xe9, // Network prefix for wif generation
     activePeer: {
       ip: '45.77.137.85',
       port: 32222
@@ -1110,6 +1110,7 @@ module.exports = {
     peers: [
 
     ],
+    
   },
   /** @type {Network} */
   bitcoin: {
@@ -1243,7 +1244,7 @@ var bignum = require("browserify-bignum");
 
 var fixedPoint = Math.pow(10, 8);
 // default is zeon mainnet
-var networkVersion = 0x3a;
+var networkVersion = 0x50;
 
 /**
  * @static

@@ -219,7 +219,7 @@ describe('HDNode', function () {
     validAll.forEach(function (f) {
       it('returns the fingerprint for ' + f.fingerprint, function () {
         var hd = HDNode.fromBase58(f.base58, NETWORKS_LIST)
-
+        
         assert.strictEqual(hd.getFingerprint().toString('hex'), f.fingerprint)
       })
     })

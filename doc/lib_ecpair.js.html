@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/ecpair.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/ecpair.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var base58check = require('bs58check')
+var bcrypto = require('./crypto')
+var ecdsa = require('./ecdsa')
+var ECSignature = require('./ecsignature')
+var randomBytes = require('randombytes')
+var typeforce = require('typeforce')
+var types = require('./types')
+var wif = require('wif')
+
+var NETWORKS = require('./networks')
+var BigInteger = require('bigi')
+
+var ecurve = require('ecurve')
+var secp256k1 = ecurve.getCurveByName('secp256k1')
+
+var secp256k1native = require('secp256k1')
+
+/**
+ * Provide either `d` or `Q` but not both.
+ *
+ * @constructor
+ * @param {BigInteger} [d] Private key.
+ * @param {Point} [Q] Public key.
+ * @param {object} [options]
+ * @param {boolean} [options.compressed=true]
+ * @param {Network} [options.network=networks.zeon]
+ */
+function ECPair (d, Q, options) {
+  if (options) {
+    typeforce({
+      compressed: types.maybe(types.Boolean),
+      network: types.maybe(types.Network)
+    }, options)
+  }
+
+  options = options || {}
+
+  if (d) {
+    if (d.signum() &lt;= 0) throw new Error('Private key must be greater than 0')
+    if (d.compareTo(secp256k1.n) >= 0) throw new Error('Private key must be less than the curve order')
+    if (Q) throw new TypeError('Unexpected publicKey parameter')
+
+    this.d = d
+  } else {
+    typeforce(types.ECPoint, Q)
+
+    this.__Q = Q
+  }
+
+  /** @type {boolean} */ this.compressed = options.compressed === undefined ? true : options.compressed
+  /** @type {Network} */ this.network = options.network || NETWORKS.zeon
+}
+
+Object.defineProperty(ECPair.prototype, 'Q', {
+  get: function () {
+    if (!this.__Q &amp;&amp; this.d) {
+      this.__Q = secp256k1.G.multiply(this.d)
+    }
+
+    return this.__Q
+  }
+})
+
+/**
+ * @param {Buffer} buffer
+ * @param {Network} [network=networks.zeon]
+ * @returns {ECPair}
+ */
+ECPair.fromPublicKeyBuffer = function (buffer, network) {
+  var Q = ecurve.Point.decodeFrom(secp256k1, buffer)
+
+  return new ECPair(null, Q, {
+    compressed: Q.compressed,
+    network: network
+  })
+}
+
+/**
+ * @param {string} string
+ * @param {Network[]|Network} network
+ * @returns {ECPair}
+ */
+ECPair.fromWIF = function (string, network) {
+  var decoded = wif.decode(string)
+  var version = decoded.version
+
+  // [network, ...]
+  if (types.Array(network)) {
+    network = network.filter(function (network) {
+      return version === network.wif
+    }).pop()
+    console.log("version" + version)
+    if (!network) throw new Error('Unknown network version')
+
+  // network
+  } else {
+    network = network || NETWORKS.zeon
+    console.log("version" + version)
+    if (version !== network.wif) throw new Error('Invalid network version')
+  }
+
+  var d = BigInteger.fromBuffer(decoded.privateKey)
+
+  return new ECPair(d, null, {
+    compressed: decoded.compressed,
+    network: network
+  })
+}
+
+/**
+ * @param {object} [options]
+ * @param {function} [options.rng]
+ * @param {boolean} [options.compressed=true]
+ * @param {Network} [options.network=networks.zeon]
+ */
+ECPair.makeRandom = function (options) {
+  options = options || {}
+
+  var rng = options.rng || randomBytes
+
+  var d
+  do {
+    var buffer = rng(32)
+    typeforce(types.Buffer256bit, buffer)
+
+    d = BigInteger.fromBuffer(buffer)
+  } while (d.signum() &lt;= 0 || d.compareTo(secp256k1.n) >= 0)
+
+  return new ECPair(d, null, options)
+}
+
+/**
+ * @param {string} seed
+ * @param {object} [options]
+ * @param {boolean} [options.compressed=true]
+ * @param {Network} [options.network=networks.zeon]
+ * @returns {ECPair}
+ */
+ECPair.fromSeed = function(seed, options) {
+  var hash = bcrypto.sha256(new Buffer(seed,"utf-8"))
+  var d = BigInteger.fromBuffer(hash)
+  if(d.signum() &lt;= 0 || d.compareTo(secp256k1.n) >= 0){
+    throw new Error("seed cannot resolve to a compatible private key")
+  }
+  else{
+    return new ECPair(d, null, options)
+  }
+}
+
+/**
+ * @returns {string}
+ */
+ECPair.prototype.getAddress = function () {
+  var payload = new Buffer(21)
+  var hash = bcrypto.ripemd160(this.getPublicKeyBuffer())
+  var version = this.getNetwork().pubKeyHash
+  payload.writeUInt8(version, 0)
+  hash.copy(payload, 1)
+
+  return base58check.encode(payload)
+}
+
+/**
+ * @returns {Network}
+ */
+ECPair.prototype.getNetwork = function () {
+  return this.network
+}
+
+ECPair.prototype.getPublicKeyBuffer = function () {
+  return this.Q.getEncoded(this.compressed)
+}
+
+/**
+ * Requires a private key (`d`) to be set.
+ *
+ * @param {Buffer} hash
+ * @returns {ECSignature}
+ */
+ECPair.prototype.sign = function (hash) {
+  if (!this.d) throw new Error('Missing private key')
+  var native=secp256k1native.sign(hash, this.d.toBuffer(32))
+  return ECSignature.parseNativeSecp256k1(native).signature
+}
+
+/**
+ * Requires a private key (`d`) to be set.
+ *
+ * @returns {string}
+ */
+ECPair.prototype.toWIF = function () {
+  if (!this.d) throw new Error('Missing private key')
+
+  return wif.encode(this.network.wif, this.d.toBuffer(32), this.compressed)
+}
+
+/**
+ * @param {Buffer} hash
+ * @returns {boolean}
+ */
+ECPair.prototype.verify = function (hash, signature) {
+  return secp256k1native.verify(hash, signature.toNativeSecp256k1(), this.Q.getEncoded(this.compressed))
+}
+
+module.exports = ECPair
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-crypto.html">crypto</a></li><li><a href="module-delegate.html">delegate</a></li><li><a href="module-ecdsa.html">ecdsa</a></li><li><a href="module-ipfs.html">ipfs</a></li><li><a href="module-multisignature.html">multisignature</a></li><li><a href="module-networks.html">networks</a></li><li><a href="module-qzeonjs.html">qzeonjs</a></li><li><a href="module-signature.html">signature</a></li><li><a href="module-slots.html">slots</a></li><li><a href="module-transaction.html">transaction</a></li><li><a href="module-vote.html">vote</a></li></ul><h3>Classes</h3><ul><li><a href="ECPair.html">ECPair</a></li><li><a href="ECSignature.html">ECSignature</a></li><li><a href="HDNode.html">HDNode</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 09 2019 07:24:08 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
